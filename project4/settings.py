@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-garys007-portfolioproje-3x6u80hitj3.ws-eu101.gitpod.io', 'garys-pizza-blog.herokuapp.com']  # noqa
+ALLOWED_HOSTS = ['8000-garys007-portfolioproje-3x6u80hitj3.ws-eu101.gitpod.io', 'garys-pizza-blog.herokuapp.com', 'garys-pizza-blog-f13a1d85eaa1.herokuapp.com']  # noqa
 
 
 # Application definition
