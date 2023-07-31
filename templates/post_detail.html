@@ -91,9 +91,9 @@
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
                 {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
-                </div>
+                    <div class="alert alert-success" role="alert">
+                        Your comment is awaiting approval
+                    </div>
                 {% else %}
                 {% if user.is_authenticated %}
 
@@ -110,5 +110,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    setTimeout(function() {
+        let messages = document.getElementById('success-msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 2000);
+</script>
 
 {% endblock content %}

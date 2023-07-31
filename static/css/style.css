@@ -6,11 +6,21 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: white;
 }
 
-.red-o {
-    color: #E84610;
+.nav-link {
+    color: #fdb82a !important;
+}
+
+.header-font {
+    color: #fdb82a !important;
+    font-style: italic;
+}
+
+.pizza-logo {
+    color: #fdb82a;
+    text-decoration: underline;
 }
 
 .thin {
@@ -22,7 +32,7 @@ body {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #3F444B;
 }
 
 .main-bg {
@@ -43,7 +53,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #23BBBB;
+    background-color: #d53524;
 }
 
 .author {
@@ -62,7 +72,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #d53524;
     color: white;
     position: relative;
 }
@@ -79,7 +89,7 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #d53524;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -93,7 +103,7 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #d53524;
 }
 
 .post-title {
@@ -120,6 +130,11 @@ body {
 .link {
     color: #23BBBB;
     text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    font-weight: bold !important;
 }
 
 .link:hover,
