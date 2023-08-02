@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-
+{% load static %}
 {% load crispy_forms_tags %}
 
 <div class="masthead">
@@ -12,7 +12,7 @@
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                <img src="{% static 'images/pepperoni-pizza.jpg' %}" width="100%" alt="placeholder">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
@@ -35,20 +35,12 @@
                                 {% csrf_token %}
                                 {% if liked %}
 
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                                <i class="fas fa-heart">
-                                </i>
-                                </button>
-
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"
+                                    aria-label="like"><i class="fas fa-heart"></i></button>
                                 {% else %}
-
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                                    <i class="far fa-heart">
-                                    </i>
-                                    </button>
-
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"
+                                    aria-label="like"><i class="far fa-heart"></i></button>
                                 {% endif %}
-
                             </form>  
                             {% else %}     
                             
@@ -58,9 +50,7 @@
                         </strong>
                     </div>
                     <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i> {{ total_comments }}</strong>
-                        {% endwith %}
+                        <strong class="text-secondary"><i class="far fa-comments"></i> {{ comment_count }}</strong>
                     </div>
                 </div>
             </div>
@@ -76,15 +66,18 @@
             <h3>Comments:</h3>
             <div class="card-body">
                 {% for comment in comments %}
-                <div class="comments{% if not comment.approved and comment.name %} faded{% elif not comment.approved %} d-none{% endif %}" style="padding: 10px;">
+                <div class="comments{% if not comment.approved and comment.name == user.username %} faded{% elif not comment.approved %} d-none{% endif %}" 
+                    style="padding: 10px;">
                     <p class="font-weight-bold">
                         {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
+                        <span class="font-weight-normal">
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
-                    {{ comment.body | linebreaks }}
-                </div>
+                    <div id="comment{{ comment.id }}">
+                        {{ comment.body | linebreaks }}
+                    </div>
+                
                 {% if not comment.approved and comment.name == user.username %}
                 <p class="approval">This comment is awaiting admin approval</p>
                 {% endif %}
@@ -92,33 +85,30 @@
                 <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
                 <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
                 {% endif %}
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                {% if commented %}
-                    <div class="alert alert-success" role="alert">
-                        Your comment is awaiting approval
-                    </div>
-                {% else %}
                 {% if user.is_authenticated %}
 
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
+                <form id="commentForm" method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
-                {% endif %}
+                {% else %}
+                <h3>Log in or Register to leave a comment.</h3>
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
  <!-- Delete Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="delete comment">
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -136,12 +126,11 @@
     </div>
 </div>
 <!--Script that closes success message after 2000ms-->
-<script>
-    setTimeout(function() {
-        let messages = document.getElementById('success-msg');
-        let alert = new bootstrap.Alert(messages);
-        alert.close();
-    }, 2000);
-</script>
+
 
 {% endblock content %}
+
+{% block extras %}
+{% load static %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock extras %}

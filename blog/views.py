@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View
+from django.views import generic
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
@@ -17,6 +18,7 @@ def post_detail(request, slug, *arghs, **kwargs):
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by('created_on')
+    comment_count = post.comments.filter(approved=True).count()
     liked = False
     commeted = False
 
@@ -28,7 +30,7 @@ def post_detail(request, slug, *arghs, **kwargs):
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
-            comment = comment_form.save(commit=false)
+            comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment awaiting moderation')  # noqa
@@ -64,6 +66,21 @@ def post_like(request, slug, *arghs, **kwargs):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+def comment_delete(request, slug, comment_id, *args, **kwargs):
+
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset)
+    comment = post.comments.filter(id=comment_id).first()
+
+    if comment.name == request.user.username:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment Successfully Deleted.')  # noqa
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments.')  # noqa
+
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
 def comment_edit(request, slug, comment_id, *args, **kwargs):
     if request.method == "POST":
 
@@ -74,9 +91,11 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
         comment_form = CommentForm(data=request.POST, instance=comment)
         if comment_form.is_valid() and comment.name == request.user.username:
             comment = comment_form.save(commit=False)
-            comment.post = postcomment.approved = False
+            comment.post = post
+            comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Your Comment has been updated')  # noqa
+            messages.add_message(request, messages.SUCCESS, 'Your Comment has been Updated!')  # noqa
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment.')  # noqa
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')  # noqa
+
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
