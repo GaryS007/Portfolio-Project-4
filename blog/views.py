@@ -69,7 +69,7 @@ def post_like(request, slug, *arghs, **kwargs):
 def comment_delete(request, slug, comment_id, *args, **kwargs):
 
     queryset = Post.objects.filter(status=1)
-    post = get_object_or_404(queryset)
+    post = get_object_or_404(queryset, slug=slug)
     comment = post.comments.filter(id=comment_id).first()
 
     if comment.name == request.user.username:
