@@ -1,6 +1,6 @@
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-var deleteButtons = document.getElementByClassName("btn-delete");
-var editButtons = document.getElementByClassName("btn-edit");
+var deleteButtons = document.getElementsByClassName("btn-delete");
+var editButtons = document.getElementsByClassName("btn-edit");
 var deleteConfirm = document.getElementById("deleteConfirm");
 var commentText = document.getElementsByTagName("textarea")[0];
 var commentForm = document.getElementById("commentForm");

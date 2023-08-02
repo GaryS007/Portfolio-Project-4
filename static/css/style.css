@@ -9,12 +9,12 @@ body {
     color: white;
 }
 
-.nav-link {
-    color: #fdb82a !important;
+#my-nav .nav-link {
+    color: #fdb82a;
 }
 
 .header-font {
-    color: #fdb82a !important;
+    color: #fdb82a;
     font-style: italic;
 }
 
@@ -124,17 +124,21 @@ body {
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: #E84610;
 }
 
 .link {
-    color: #23BBBB;
+    color: #fdb82a;
     text-decoration: none;
 }
 
-.nav-link:hover,
-.nav-link:active {
-    font-weight: bold !important;
+#my-nav .nav-link:hover {
+    font-weight: bold;
+    color: #fdb82a;
+}
+
+#my-nav .nav-link.active {
+    font-weight: bold;
 }
 
 .link:hover,
@@ -154,4 +158,15 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+.btn-delete {
+    color: white;
+    background: #E84610;
+}
+
+.btn-edit,
+.btn-signup {
+    color: black;
+    background: #fdb82a !important;
 }
