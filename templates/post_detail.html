@@ -83,7 +83,7 @@
                 {% endif %}
                 {% if user.is_authenticated and comment.name == user.username %}
                 <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-                <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                <button class="btn btn-edit btn-primary primary-color" comment_id="{{ comment.id }}">Edit</button>
                 {% endif %}
                 </div>
                 {% endfor %}
@@ -98,7 +98,7 @@
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button id="submitButton" type="submit" class="btn btn-primary primary-color btn-lg">Submit</button>
                 </form>
                 {% else %}
                 <h3>Log in or Register to leave a comment.</h3>

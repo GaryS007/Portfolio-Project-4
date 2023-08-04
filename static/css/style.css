@@ -96,6 +96,17 @@ body {
     z-index: 100;
 }
 
+#submitButton.btn-primary {
+    background-color: #fdb82a;
+    border-color: #fdb82a;
+    margin-top: 5px;
+}
+
+.btn-primary.primary-color {
+    background-color: #fdb82a;
+    border-color: #fdb82a;
+}
+
 .post-link {
     text-decoration: none;
     color: #445261;
@@ -114,11 +125,6 @@ body {
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
-}
-
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
 }
 
 .btn-signup:hover,
@@ -165,8 +171,10 @@ body {
     background: #E84610;
 }
 
-.btn-edit,
-.btn-signup {
+.btn-edit.btn-signup {
+    background: #fdb82a;
+}
+
+.btn-primary.primary-color:hover {
     color: black;
-    background: #fdb82a !important;
 }

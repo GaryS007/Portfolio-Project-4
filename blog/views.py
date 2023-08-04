@@ -99,3 +99,19 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
             messages.add_message(request, messages.ERROR, 'Error updating comment!')  # noqa
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+def appointment(request):
+    if request.method == "POST":
+        your_name = request.POST['your-name']
+        your_phone = request.POST['your-phone']
+        your_email = request.POST['your-email']
+        your_date = request.POST['your-date']
+        your_time = request.POST['your-time']
+        your_message = request.POST['your-message']
+
+        return render(request, 'appointment.html', {})
+
+    else:
+
+        return render(request, 'index.html', {})
