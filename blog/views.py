@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
+from django.views.generic import CreateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, BlogPost
+from django.forms import ModelForm
+from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
@@ -112,3 +115,17 @@ def search_recipes(request):
         )
     else:
         return render(request, "search_recipes.html", {})
+
+
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'user_post.html'
+    fields = ("title", "content", "featured_image", "excerpt", "status")  # noqa
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def save(self, *args, **kwargs):
+        self.slug = unique_slugify(self.title)
+        super(Post, self).save(*args, **kwargs)

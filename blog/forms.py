@@ -11,4 +11,16 @@ class CommentForm(forms.ModelForm):
 class BlogPost(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content']
+        fields = (
+            'title',
+            'content',
+            'author',
+            'featured_image',
+            'excerpt',
+            'content',
+            'status',
+            'likes',
+            )
+
+        def __init__(self, *args, **kwargs):
+            super(AddPostView, self).__init__(*args, **kwargs)
