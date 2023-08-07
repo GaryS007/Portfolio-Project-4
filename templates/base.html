@@ -57,14 +57,16 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == booking_url %}active{% endif %}" href="{% url 'booking' %}">Bookings</a>
-                    </li>
                     {% endif %}
                 </ul>
-                <span class="header-font">
-                    Pizza Blog for Pizza Lovers
-                </span>
+                <!-- Search Bar -->
+                <form class="d-flex" method=POST action="{% url 'search_recipes' %}">
+                    
+                    {% csrf_token %}
+
+                    <input class="form-control me-2" type="search" placeholder="Search Recipes" aria-label="Search" name="search">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>

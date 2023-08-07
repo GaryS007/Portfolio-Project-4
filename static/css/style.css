@@ -178,3 +178,11 @@ body {
 .btn-primary.primary-color:hover {
     color: black;
 }
+
+.faded {
+    color: rgb(172, 172, 175);
+}
+
+.approval {
+    color: rgb(232, 70, 16);
+}

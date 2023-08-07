@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+
+    <center>
+    {% if search %}
+        <h1>You Searched For "{{ search }}"</h1>
+        <br/>
+        {% for recipe in recipes %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="image-container">
+                            {% if "placeholder" in recipe.featured_image.url %}
+                            <img class="card-img-top"
+                                src="https://raw.githubusercontent.com/GaryS007/Portfolio-Project-4/main/static/images/pepperoni-pizza.jpg">
+                            {% else %}
+                            <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                            {% endif %}
+                            <div class="image-flash">
+                                <p class="author">Author: {{ recipe.author }}</p>
+                            </div>
+                        </div>
+                        <a href="{% url 'post_detail' recipe.slug %}" class="post-link">
+                            <h2 class="card-title">{{ recipe.title }}</h2>
+                            <p class="card-text">{{ recipe.excerpt }}</p>
+                        </a>
+                        <p class="card-text text-muted h6">{{ recipe.created_on}} <i class="far fa-heart"></i>
+                            {{ recipe.number_of_likes }}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        {% empty %}
+        <h1>No search results found...</h1>
+
+        {% endfor %}
+    {% else %}
+        <h1>Hey! You Forgot to Search for a Recipe...</h1>
+    {%  endif %}
+    </center>
+
+{% endblock %}

@@ -101,17 +101,14 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-def appointment(request):
+def search_recipes(request):
+
     if request.method == "POST":
-        your_name = request.POST['your-name']
-        your_phone = request.POST['your-phone']
-        your_email = request.POST['your-email']
-        your_date = request.POST['your-date']
-        your_time = request.POST['your-time']
-        your_message = request.POST['your-message']
+        search = request.POST["search"]
+        recipes = Post.objects.filter(title__contains=search)
 
-        return render(request, 'appointment.html', {})
-
+        return render(
+            request, "search_recipes.html", {"search": search, "recipes": recipes}  # noqa
+        )
     else:
-
-        return render(request, 'index.html', {})
+        return render(request, "search_recipes.html", {})
