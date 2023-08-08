@@ -1,0 +1,27 @@
+                     List of relations
+ Schema |             Name              | Type  |  Owner   
+--------+-------------------------------+-------+----------
+ public | about_about                   | table | tztznhzu
+ public | account_emailaddress          | table | tztznhzu
+ public | account_emailconfirmation     | table | tztznhzu
+ public | auth_group                    | table | tztznhzu
+ public | auth_group_permissions        | table | tztznhzu
+ public | auth_permission               | table | tztznhzu
+ public | auth_user                     | table | tztznhzu
+ public | auth_user_groups              | table | tztznhzu
+ public | auth_user_user_permissions    | table | tztznhzu
+ public | blog_comment                  | table | tztznhzu
+ public | blog_post                     | table | tztznhzu
+ public | blog_post_likes               | table | tztznhzu
+ public | django_admin_log              | table | tztznhzu
+ public | django_content_type           | table | tztznhzu
+ public | django_migrations             | table | tztznhzu
+ public | django_session                | table | tztznhzu
+ public | django_site                   | table | tztznhzu
+ public | django_summernote_attachment  | table | tztznhzu
+ public | socialaccount_socialaccount   | table | tztznhzu
+ public | socialaccount_socialapp       | table | tztznhzu
+ public | socialaccount_socialapp_sites | table | tztznhzu
+ public | socialaccount_socialtoken     | table | tztznhzu
+(22 rows)
+
