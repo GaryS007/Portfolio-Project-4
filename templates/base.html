@@ -9,7 +9,7 @@
 <html class="h-100">
 
 <head>
-    <title>Gary's Pizza Blog</title>
+    <title>Luca's Pizza Blog</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 
     <nav id="my-nav" class="navbar navbar-expand-lg navbar-light dark-bg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Gary's <span class="pizza-logo">Pizza</span><span
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Luca's <span class="pizza-logo">Pizza</span><span
                         class="thin"> Blog</span></span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
                             aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page"
+                        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" aria-current="page"
                             href="{% url 'about' %}">About</a>
                     </li>
                     {% if user.is_authenticated %}
@@ -98,7 +98,7 @@
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">Gary's Pizza Blog made by a Pizza Lover for Pizza Lovers</p>
+        <p class="m-0 text-center text-white">Luca's Pizza Blog made by a Pizza Lover for Pizza Lovers</p>
         <p class="m-0 text-center text-white">Socials: 
             <!-- Facebook -->
             <a class="btn btn-primary" href="https://www.facebook.com" style="background-color: #3b5998;"  role="button">

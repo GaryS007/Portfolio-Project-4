@@ -21,7 +21,7 @@ class PostList(generic.ListView):
 
 def post_detail(request, slug, *arghs, **kwargs):
     """
-    Function based view to load comment form if user is authenticated. 
+    Function based view to load comment form if user is authenticated.
     It also saves the comment and provides appropriate messaging to the user.
     """
     queryset = Post.objects.filter(status=1)
@@ -61,7 +61,7 @@ def post_detail(request, slug, *arghs, **kwargs):
 
 def post_like(request, slug, *arghs, **kwargs):
     """
-    Function that enabled a user, if authenticated, to like a blog post. 
+    Function that enabled a user, if authenticated, to like a blog post.
     Or unlike a blog post if already liked.
     """
 

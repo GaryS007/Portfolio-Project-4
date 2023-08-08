@@ -145,6 +145,12 @@ body {
 
 #my-nav .nav-link.active {
     font-weight: bold;
+    text-decoration: underline;
+}
+
+.nav-item .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .link:hover,
@@ -189,4 +195,8 @@ body {
 
 .navbar-nav {
     padding-left: 40px !important;
+}
+
+.about {
+    margin-top: 40px;
 }
