@@ -10,6 +10,9 @@ from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
+    """
+    Djangos Generic Listview to display paginated blog posts.
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -17,6 +20,10 @@ class PostList(generic.ListView):
 
 
 def post_detail(request, slug, *arghs, **kwargs):
+    """
+    Function based view to load comment form if user is authenticated. 
+    It also saves the comment and provides appropriate messaging to the user.
+    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by('created_on')
@@ -53,6 +60,10 @@ def post_detail(request, slug, *arghs, **kwargs):
 
 
 def post_like(request, slug, *arghs, **kwargs):
+    """
+    Function that enabled a user, if authenticated, to like a blog post. 
+    Or unlike a blog post if already liked.
+    """
 
     post = get_object_or_404(Post, slug=slug)
 
@@ -66,6 +77,11 @@ def post_like(request, slug, *arghs, **kwargs):
 
 
 def comment_delete(request, slug, comment_id, *args, **kwargs):
+    """
+    Function that enables a user to delete a comment
+    if their username matches the name on the comment.
+    Appropriate messaging is handled via the if else statement.
+    """
 
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -81,6 +97,14 @@ def comment_delete(request, slug, comment_id, *args, **kwargs):
 
 
 def comment_edit(request, slug, comment_id, *args, **kwargs):
+    """
+    Function that enables a user to edit their comment
+    if their username matches the original comment.
+    If the edited comment was originally approved,
+    the new edited comment will reset approval back to false
+    so an admin will need to approve again.
+    Appropriate messaging will be sent back to the user.
+    """
     if request.method == "POST":
 
         queryset = Post.objects.filter(status=1)
@@ -101,6 +125,10 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
 
 
 def search_recipes(request):
+    """
+    Function that enables a user to search for a
+    specific recipe using the search box in the navbar.
+    """
 
     if request.method == "POST":
         search = request.POST["search"]
@@ -114,6 +142,9 @@ def search_recipes(request):
 
 
 class AddPostView(CreateView):
+    """
+    This class enables a user to add a blog post
+    """
     model = Post
     template_name = 'user_post.html'
     fields = ("title", "content", "featured_image", "excerpt", "status")  # noqa

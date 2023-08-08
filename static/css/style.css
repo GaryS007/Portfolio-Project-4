@@ -186,3 +186,7 @@ body {
 .approval {
     color: rgb(232, 70, 16);
 }
+
+.navbar-nav {
+    padding-left: 40px !important;
+}
