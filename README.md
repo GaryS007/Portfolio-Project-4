@@ -1,108 +1,112 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Luca's Pizza Blog
 
-Welcome GaryS007,
+Luca's Pizza Blog is a full-stack, responsive website built for a Pizza Chef looking to share and educate users on the art of pizza.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+It provides the user value by learning about the blogger and recipes they post about. It has a Search Box that enables the user to search for specific recipes. Users can register an account, view blog posts, like blog posts and add / edit / delete comments they make on a specific blog post.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+# RESPONSIVE IMAGE GOES HERE
 
-## Gitpod Reminders
+# LINK TO WEBSITE WILL GO HERE
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of Contents
+* [Overview](#overview)
+* [Agile Methodology](#agile-methodology)
+* [User Experience (UX)](#user-experience-ux)
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+____
 
-A blue button should appear to click: _Make Public_,
+## Overview
 
-Another blue button should appear to click: _Open Browser_.
+Luca's Pizza Blog is a responsive, mobile-first website. It is compatiable with all current major browsers. The website is built for educational purposes, using Bootstrap and Django Framework. It gives users the ability to register for an account, like blog posts, add comments, edit & delete their comments. Full CRUD functionality on comments. As well as an About Page for users to read more about Luca and his experience as a Pizza Chef.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+[Back to  Top](#table-of-contents)
 
-To log into the Heroku toolbelt CLI:
+____
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Agile Methodology
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+This project was planned using Agile Methodology. GitHub Issues was used to create user stories which can be viewed [here](https://github.com/GaryS007/Portfolio-Project-4/issues). Each User Story helped me understand a User/Admin requirements when using the blog site I had in mind. This was my first time using this methodology and the Django framework, so I feel like I could have used the user stories to dictate the priority of each future iteration. All of which can be implemented in Project 5.
 
-------
+I really felt that using Agile Method helped me stay focused on what tasks need to be completed. I can simply move a task to To Do for the next day and plan out which tasks can be completed so I stay focused and on schedule with my project. It also really helps manage expectations and time. Finally, who doesn't love putting a task in the 'done' section when completed!
 
-## Release History
+[Back to Top](#table-of-contents)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+____
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## User Experience (UX)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Site Goals
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Luca's Pizza Blog is designed to entice people into learning about various pizza recipes but also to engage with a pizza chef and pizza community. It displays Blog Posts on the homepage with vibrant images and short descriptions to entice new users. Each Blog Post contains a new and unique recipe, which enables the user to engage with that content by liking or commenting on the post. It also provides information about the Pizza Chef via the about page. I wanted to include additional functionality by enabling any user to Search or Filter for recipes that they might be more interested in. This feature will become increasingly more useful as more blog posts get added, preventing the need to scroll through pages of content.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+The target audience are pizza lovers of all ages that want to gain additional experience from a trained pizza chef.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+____
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Scope / User Stores
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+** As a Site Admin / Blog Owner **
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+* I can create, read, update and delete posts which enables me to manage my blog content.
+* I can Approve / Dissapprove user comments to prevent spam and to filter out negative comments.
+* I can create a blog post draft so that I can save that draft and finish it later.
+* I can view the number of likes and comments on each post so that I can see which post is the most successful.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+** As a User **
+* I can see the website's logo and links at the top of the page so that I can easily navigate to all parts of the website.
+* I can click on a blog post and read the full post.
+* I can read more information about the blogger.
+* I can use the search box to search for specific recipes.
+* I can Register a new account so I can post, like and comment.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+** As a Returning User **
+* I can use my Username and Password in order to login to my account.
+* I can log out of my account to keep my account safe and also be notified upon logging out.
+* I can post a comment on a specific blog post.
+* I can like or unlike blog posts so that I can interact with the content.
+* I can Edit / Delete a comment made by my account.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+____
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Wireframes
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+I created Wireframes using MSPaint to help visualize how the final site would look and to allow me to plan accordingly.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Design Choices
 
-------
+[Back to Top](#table-of-contents
 
-## FAQ about the uptime script
+____
 
-**Why have you added this script?**
+## Features
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Existing Features
 
-**How will this affect me?**
+[Back to Top](#table-of-contents
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+____
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## Future Features
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+[Back to Top](#table-of-contents
 
-**So….?**
+____
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## Technologies Used
 
-**Can I opt out?**
+[Back to Top](#table-of-contents
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+____
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+## Testing
 
-**Anything more?**
+### Bugs
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Deployment
 
----
+## Credits
 
-Happy coding!
+

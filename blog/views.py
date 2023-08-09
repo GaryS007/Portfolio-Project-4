@@ -143,7 +143,7 @@ def search_recipes(request):
 
 class AddPostView(CreateView):
     """
-    This class enables a user to add a blog post
+    This class enables the user to add a post using the post model
     """
     model = Post
     template_name = 'user_post.html'
