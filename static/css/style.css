@@ -107,6 +107,11 @@ body {
     border-color: #fdb82a;
 }
 
+.primary-color.contact-btn {
+    margin-top: 15px;
+    width: 75%;
+}
+
 .post-link {
     text-decoration: none;
     color: #445261;

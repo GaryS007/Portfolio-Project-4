@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<center>
+    <h1>Contact Us Page</h1>
+</br></br>
+    {% if submitted %}
+        This form was submitted successfully.
+
+    {% else %}
+        <center>
+            <h1>{{ contact.title }}</h1>
+            <div class="col-8">
+                <form action="{% url 'contact' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type ="submit" class="btn btn-primary primary-color contact-btn" value="Submit">
+                </form>
+            </div>
+        </center>
+    {% endif %}
+{% endblock content %}

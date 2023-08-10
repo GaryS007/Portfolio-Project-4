@@ -1,4 +1,4 @@
-from .models import Comment, Post
+from .models import Comment, Post, Contact
 from django import forms
 
 
@@ -24,3 +24,13 @@ class BlogPost(forms.ModelForm):
 
         def __init__(self, *args, **kwargs):
             super(AddPostView, self).__init__(*args, **kwargs)
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = (
+            'name',
+            'email',
+            'message',
+        )

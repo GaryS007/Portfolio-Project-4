@@ -3,8 +3,8 @@ from django.views import generic
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post
-from .forms import CommentForm, BlogPost
+from .models import Post, Contact
+from .forms import CommentForm, BlogPost, ContactForm
 from django.forms import ModelForm
 from django.utils.text import slugify
 
@@ -139,6 +139,32 @@ def search_recipes(request):
         )
     else:
         return render(request, "search_recipes.html", {})
+
+
+def contact(request):
+    submitted = False
+    if request.method == "POST":
+        form = ContactForm(request.Post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/contact_luca?submitted=True')
+    else:
+        form = ContactForm
+        if 'submitted' in request.GET:
+            submitted = True
+    if request.method == "POST":
+        message_name = request.POST['message-name']
+        message_email = request.POST['message-email']
+        message = request.POST['message']
+
+        return render(request, 'contact.html', {
+            'message_name': message_name,
+            'message_email': message_email,
+            'form': form,
+            'submitted': submitted
+            })
+    else:
+        return render(request, 'contact.html', {})
 
 
 class AddPostView(CreateView):

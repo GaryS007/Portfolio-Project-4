@@ -10,5 +10,6 @@ urlpatterns = [
     path('<slug:slug>/delete_comment/<int:comment_id>', views.comment_delete, name='comment_delete'),  # noqa
     path('<slug:slug>/edit_comment/<int:comment_id>', views.comment_edit, name='comment_edit'),  # noqa
     path('search_recipes', views.search_recipes, name='search_recipes'),
+    path('contact_luca', views.contact, name='contact'),
     path('user_post', AddPostView.as_view(), name='user_post'),
 ]
