@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, ContactEnquiry
+from .models import Post, Comment, ContactEnquiry, ContactPage
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -30,4 +30,11 @@ class ContactAdmin(admin.ModelAdmin):
     actions = ['completed']
     list_filter = ('completed', 'created_on')
     search_fields = ('name', 'email', 'message')
+    summernote_fields = ('content',)
+
+
+@admin.register(ContactPage)
+class AddContactPage(admin.ModelAdmin):
+    list_display = ('title',)
+    search_fields = ['title', 'content']
     summernote_fields = ('content',)

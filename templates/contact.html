@@ -3,14 +3,10 @@
 {% load static %}
 
 <center>
-    <h1>Contact Us Page</h1>
+    <h1>{{ contact.title }}</h1>
+    <p>{{ contact.content }}</p>
 </br></br>
-    {% if submitted %}
-        This form was submitted successfully.
-
-    {% else %}
         <center>
-            <h1>Test</h1>
             <div class="col-8">
                 <form action="" method="POST">
                     {% csrf_token %}
@@ -19,5 +15,4 @@
                 </form>
             </div>
         </center>
-    {% endif %}
 {% endblock content %}

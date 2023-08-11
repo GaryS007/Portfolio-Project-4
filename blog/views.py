@@ -142,7 +142,6 @@ def search_recipes(request):
 
 
 def contact(request):
-    form = "Dummy String"
     form_class = ContactForm
 
     form = form_class(request.POST)
@@ -151,6 +150,7 @@ def contact(request):
             name = request.POST.get('name')
             email = request.POST.get('email')
             msg = request.POST.get('message')
+            contact.completed = False
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Luca has received your message and will respond ASAP.')  # noqa
             return HttpResponseRedirect('/contact_luca')
@@ -160,18 +160,17 @@ def contact(request):
     return render(request, 'contact.html', {'form': form})
 
 
-class AddPostView(CreateView):
+def contact_page(request, *args, **kwargs):
     """
-    This class enables the user to add a post using the post model
+    Renders the view for the contact.html template
     """
-    model = Post
-    template_name = 'user_post.html'
-    fields = ("title", "content", "featured_image", "excerpt", "status")  # noqa
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+    contact = ContactPage.objects.all().first()
 
-    def save(self, *args, **kwargs):
-        self.slug = unique_slugify(self.title)
-        super(Post, self).save(*args, **kwargs)
+    return render(
+        request,
+        "contact.html",
+        {
+            "contact": contact
+        },
+    )

@@ -52,11 +52,6 @@
                             href="{% url 'contact' %}">Contact</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <!-- User Story Nav Item, maybe remove
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == user_post %}active{%endif%}" aria-current="page"
-                            href="{% url 'user_post' %}">User Post</a>-->
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a>
                     </li>
