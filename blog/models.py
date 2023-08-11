@@ -52,6 +52,7 @@ class ContactEnquiry(models.Model):
     email = models.EmailField(blank=True)
     name = models.CharField(max_length=80, blank=True)
     message = models.TextField(blank=True)
+    subject = models.CharField(max_length=60, blank=True)
     completed = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
 

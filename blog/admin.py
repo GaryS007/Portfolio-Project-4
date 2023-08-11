@@ -26,7 +26,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(ContactEnquiry)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'message', 'created_on', 'completed')
+    list_display = ('name', 'email', 'subject', 'created_on', 'completed')
     actions = ['completed']
     list_filter = ('completed', 'created_on')
     search_fields = ('name', 'email', 'message')
