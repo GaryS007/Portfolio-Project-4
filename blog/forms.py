@@ -1,4 +1,4 @@
-from .models import Comment, Post, Contact
+from .models import Comment, Post, ContactEnquiry
 from django import forms
 
 
@@ -28,9 +28,5 @@ class BlogPost(forms.ModelForm):
 
 class ContactForm(forms.ModelForm):
     class Meta:
-        model = Contact
-        fields = (
-            'name',
-            'email',
-            'message',
-        )
+        model = ContactEnquiry
+        fields = ('name', 'email', 'message',)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Contact
+from .models import Post, Comment, ContactEnquiry
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -24,8 +24,10 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-@admin.register(Contact)
+@admin.register(ContactEnquiry)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('title', 'name', 'email', 'message')
+    list_display = ('name', 'email', 'message', 'created_on', 'completed')
+    actions = ['completed']
+    list_filter = ('completed', 'created_on')
     search_fields = ('name', 'email', 'message')
     summernote_fields = ('content',)

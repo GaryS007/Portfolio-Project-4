@@ -48,12 +48,20 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
-class Contact(models.Model):
-    title = models.CharField(max_length=200, unique=True, blank=True)
-    content = models.TextField(blank=True)
-    email = models.EmailField()
-    name = models.CharField(max_length=80)
-    message = models.TextField()
+class ContactEnquiry(models.Model):
+    email = models.EmailField(blank=True)
+    name = models.CharField(max_length=80, blank=True)
+    message = models.TextField(blank=True)
+    completed = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ContactPage(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    content = models.TextField()
 
     def __str__(self):
         return self.title

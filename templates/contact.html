@@ -10,9 +10,9 @@
 
     {% else %}
         <center>
-            <h1>{{ contact.title }}</h1>
+            <h1>Test</h1>
             <div class="col-8">
-                <form action="{% url 'contact' %}" method="POST">
+                <form action="" method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <input type ="submit" class="btn btn-primary primary-color contact-btn" value="Submit">

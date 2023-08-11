@@ -3,7 +3,7 @@ from django.views import generic
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Contact
+from .models import Post, ContactPage, ContactEnquiry
 from .forms import CommentForm, BlogPost, ContactForm
 from django.forms import ModelForm
 from django.utils.text import slugify
@@ -142,29 +142,22 @@ def search_recipes(request):
 
 
 def contact(request):
-    submitted = False
-    if request.method == "POST":
-        form = ContactForm(request.Post)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/contact_luca?submitted=True')
-    else:
-        form = ContactForm
-        if 'submitted' in request.GET:
-            submitted = True
-    if request.method == "POST":
-        message_name = request.POST['message-name']
-        message_email = request.POST['message-email']
-        message = request.POST['message']
+    form = "Dummy String"
+    form_class = ContactForm
 
-        return render(request, 'contact.html', {
-            'message_name': message_name,
-            'message_email': message_email,
-            'form': form,
-            'submitted': submitted
-            })
-    else:
-        return render(request, 'contact.html', {})
+    form = form_class(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            msg = request.POST.get('message')
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Luca has received your message and will respond ASAP.')  # noqa
+            return HttpResponseRedirect('/contact_luca')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error sending message!')  # noqa
+
+    return render(request, 'contact.html', {'form': form})
 
 
 class AddPostView(CreateView):
