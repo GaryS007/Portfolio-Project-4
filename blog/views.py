@@ -3,7 +3,7 @@ from django.views import generic
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, ContactPage, ContactEnquiry
+from .models import Post, ContactEnquiry
 from .forms import CommentForm, BlogPost, ContactForm
 from django.forms import ModelForm
 from django.utils.text import slugify
@@ -158,19 +158,3 @@ def contact_form(request):
             messages.add_message(request, messages.ERROR, 'Error sending message!')  # noqa
 
     return render(request, 'contact.html', {'form': form})
-
-
-def contact_page(request, *args, **kwargs):
-    """
-    Renders the view for the contact.html template
-    """
-
-    contact = ContactPage.objects.all().first()
-
-    return render(
-        request,
-        "contact.html",
-        {
-            "contact": contact
-        },
-    )
