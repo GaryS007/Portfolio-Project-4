@@ -141,7 +141,7 @@ def search_recipes(request):
         return render(request, "search_recipes.html", {})
 
 
-def contact(request):
+def contact_form(request):
     form_class = ContactForm
 
     form = form_class(request.POST)

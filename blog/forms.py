@@ -30,9 +30,32 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactEnquiry
         fields = ('name', 'email', 'subject', 'message',)
+        labels = {
+            'name': (''),
+            'email': (''),
+            'subject': (''),
+            'message': (''),
+
+        }
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Enter Your Name'}),
-            'email': forms.TextInput(attrs={'placeholder': 'Enter your Email'}),  # noqa
-            'subject': forms.TextInput(attrs={'placeholder': 'Subject Line'}),
-            'message': forms.Textarea(attrs={'placeholder': 'Enter your Message'}),  # noqa
+            'name': forms.TextInput(attrs={
+                'placeholder': 'Enter Your Name',
+                'class': 'form-control',
+                'style': 'max-width: 300px',
+                }),
+            'email': forms.TextInput(attrs={
+                'placeholder': 'Enter your Email',
+                'class': 'form-control',
+                'style': 'max-width: 300px',
+                }),
+            'subject': forms.TextInput(attrs={
+                'placeholder': 'Subject Line',
+                'class': 'form-control',
+                'style': 'max-width: 300px',
+                }),
+            'message': forms.Textarea(attrs={
+                'placeholder': 'Enter your Message',
+                'class': 'form-control',
+                'style': 'max-width: 300px',
+                }),
         }
