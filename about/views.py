@@ -4,7 +4,7 @@ from .models import About
 
 def about_me(request, *args, **kwargs):
     """
-    Renders the view for the about.html template
+    Defines logic for About page
     """
 
     about = About.objects.all().first()

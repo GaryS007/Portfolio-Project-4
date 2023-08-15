@@ -8,10 +8,21 @@ from .forms import CommentForm, BlogPost, ContactForm
 from django.forms import ModelForm
 from django.utils.text import slugify
 
+"""
+Constants for messages to prevent PEP8 errors
+"""
+MODERATION = 'Comment awaiting moderation'
+SUCCESSFULLY_DELETED = 'Comment Successfully Deleted.'
+DELETE_FAILED = 'You can only delete your own comments.'
+COMMENT_UPDATED = 'Your Comment has been Updated!'
+UPDATE_FAILED = 'Error updating comment!'
+CONTACT_SUCCESS = 'Luca has received your message and will respond ASAP.'
+CONTACT_FAILED = 'Error sending message!'
+
 
 class PostList(generic.ListView):
     """
-    Djangos Generic Listview to display paginated blog posts.
+    Handles the blogposts displayed on homepage.
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -21,8 +32,7 @@ class PostList(generic.ListView):
 
 def post_detail(request, slug, *arghs, **kwargs):
     """
-    Function based view to load comment form if user is authenticated.
-    It also saves the comment and provides appropriate messaging to the user.
+    Defines the logic for blog post page.
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -44,7 +54,7 @@ def post_detail(request, slug, *arghs, **kwargs):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment awaiting moderation')  # noqa
+            messages.add_message(request, messages.SUCCESS, MODERATION)
 
     return render(
         request,
@@ -61,8 +71,7 @@ def post_detail(request, slug, *arghs, **kwargs):
 
 def post_like(request, slug, *arghs, **kwargs):
     """
-    Function that enabled a user, if authenticated, to like a blog post.
-    Or unlike a blog post if already liked.
+    Defines the logic for liking a blog post.
     """
 
     post = get_object_or_404(Post, slug=slug)
@@ -78,9 +87,7 @@ def post_like(request, slug, *arghs, **kwargs):
 
 def comment_delete(request, slug, comment_id, *args, **kwargs):
     """
-    Function that enables a user to delete a comment
-    if their username matches the name on the comment.
-    Appropriate messaging is handled via the if else statement.
+    Handles the logic to allow a user to delete a comment
     """
 
     queryset = Post.objects.filter(status=1)
@@ -89,21 +96,16 @@ def comment_delete(request, slug, comment_id, *args, **kwargs):
 
     if comment.name == request.user.username:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment Successfully Deleted.')  # noqa
+        messages.add_message(request, messages.SUCCESS, SUCCESSFULLY_DELETED)
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments.')  # noqa
+        messages.add_message(request, messages.ERROR, DELETE_FAILED)
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 def comment_edit(request, slug, comment_id, *args, **kwargs):
     """
-    Function that enables a user to edit their comment
-    if their username matches the original comment.
-    If the edited comment was originally approved,
-    the new edited comment will reset approval back to false
-    so an admin will need to approve again.
-    Appropriate messaging will be sent back to the user.
+    Handles the logic to allow a user to edit their own comment
     """
     if request.method == "POST":
 
@@ -117,17 +119,16 @@ def comment_edit(request, slug, comment_id, *args, **kwargs):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Your Comment has been Updated!')  # noqa
+            messages.add_message(request, messages.SUCCESS, COMMENT_UPDATED)
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')  # noqa
+            messages.add_message(request, messages.ERROR, UPDATE_FAILED)
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 def search_recipes(request):
     """
-    Function that enables a user to search for a
-    specific recipe using the search box in the navbar.
+    Handles the logic to allow a user to search for blog recipes
     """
 
     if request.method == "POST":
@@ -135,13 +136,15 @@ def search_recipes(request):
         recipes = Post.objects.filter(title__contains=search)
 
         return render(
-            request, "search_recipes.html", {"search": search, "recipes": recipes}  # noqa
+            request, "search_recipes.html", {"search": search,
+                                             "recipes": recipes}
         )
     else:
         return render(request, "search_recipes.html", {})
 
 
 def contact_form(request):
+    "Handles the logic for the contact form"
     form_class = ContactForm
 
     form = form_class(request.POST)
@@ -152,9 +155,9 @@ def contact_form(request):
             msg = request.POST.get('message')
             contact.completed = False
             form.save()
-            messages.add_message(request, messages.SUCCESS, 'Luca has received your message and will respond ASAP.')  # noqa
+            messages.add_message(request, messages.SUCCESS, CONTACT_SUCCESS)
             return HttpResponseRedirect('/contact_luca')
         else:
-            messages.add_message(request, messages.ERROR, 'Error sending message!')  # noqa
+            messages.add_message(request, messages.ERROR, CONTACT_FAILED)
 
     return render(request, 'contact.html', {'form': form})

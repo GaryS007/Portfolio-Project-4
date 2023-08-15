@@ -7,6 +7,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Post(models.Model):
+    """
+    Defines the Post Model
+    """
     title = models.CharField(max_length=200, unique=True, default="Some String")  # noqa
     slug = models.SlugField(max_length=200, unique=True, null=True, blank=False)  # noqa
     author = models.ForeignKey(User, on_delete=models.CASCADE,
@@ -20,19 +23,35 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
 
     class Meta:
+        """
+        Innerclass of Post model, affects the behaviour of the fields.
+        """
         ordering = ['-created_on']
 
     def __str__(self):
+        """
+        Returns a string representation
+        """
         return self.title
 
     def number_of_likes(self):
+        """
+        Returns the number of times the likes object appears
+        using built in python function count()
+        """
         return self.likes.count()
 
     def get_absolute_url(self):
+        """
+        Returns the full URL to the home route as a string
+        """
         return reverse('home')
 
 
 class Comment(models.Model):
+    """
+    Defines the Comment Model
+    """
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=80)
@@ -42,13 +61,22 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
+        """
+        Innerclass of Post model, affects the behaviour of the fields.
+        """
         ordering = ['created_on']
 
     def __str__(self):
+        """
+        Returns a string representation of the Comment Model
+        """
         return f"Comment {self.body} by {self.name}"
 
 
 class ContactEnquiry(models.Model):
+    """
+    Defines the Comment Model
+    """
     email = models.EmailField(blank=True)
     name = models.CharField(max_length=80, blank=True)
     message = models.TextField(blank=True)
@@ -57,4 +85,7 @@ class ContactEnquiry(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
+        """
+        Returns a string representation of the name object
+        """
         return self.name

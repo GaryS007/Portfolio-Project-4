@@ -3,12 +3,18 @@ from django import forms
 
 
 class CommentForm(forms.ModelForm):
+    """
+    Creates fields for Comment Model
+    """
     class Meta:
         model = Comment
         fields = ('body',)
 
 
 class BlogPost(forms.ModelForm):
+    """
+    Creates fields for Post Model
+    """
     class Meta:
         model = Post
         fields = (
@@ -27,9 +33,15 @@ class BlogPost(forms.ModelForm):
 
 
 class ContactForm(forms.ModelForm):
+    """
+    Creates fields for ContactEnquiry Model
+    """
     class Meta:
         model = ContactEnquiry
         fields = ('name', 'email', 'subject', 'message',)
+        """
+        Labels replaces the default labels for forms.
+        """
         labels = {
             'name': (''),
             'email': (''),
@@ -37,6 +49,10 @@ class ContactForm(forms.ModelForm):
             'message': (''),
 
         }
+        """
+        widgets are used here to replace various attributes such as
+        placeholder text, class and styles of specific form fields.
+        """
         widgets = {
             'name': forms.TextInput(attrs={
                 'placeholder': 'Enter Your Name',
@@ -49,7 +65,7 @@ class ContactForm(forms.ModelForm):
                 'style': 'max-width: 300px',
                 }),
             'subject': forms.TextInput(attrs={
-                'placeholder': 'Subject Line',
+                'placeholder': 'Enter a Subject',
                 'class': 'form-control',
                 'style': 'max-width: 300px',
                 }),
