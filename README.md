@@ -336,6 +336,55 @@ Each Blog Post is responsive, can be accessed via the main blog (Home page). Eac
 </details>
 </br>
 
+**Comments**
+
+Any registered User has the ability to comment on a specific blog post, they can comment multiple times on as many blog posts as they want to and has full CRUD functionality.
+* A user must be logged in order to have access to posting a comment.
+* All comments made by a user must be approved by an Admin.
+* Until the comment is approved, it will be displayed as faded and a message clearly stating that it's awaiting admin approval.
+* Once commented, an alert message will confirm that the comment has been made.
+* Once a comment has been made, even if not approved the user can Delete or Edit their message.
+* If a Comment has been approved by a Moderator, when Edited it will revert back to Unapproved automatically.
+* If Edited, the 'Submit' button will automatically change to 'Update' and the comment body will be populated with their current message.
+* If they click Delete, a Modal will appear asking them to confirm if they want to delete the comment to prevent missclicks.
+* Depending on the option they choose there will be consistent alert messages for each option Add/Edit/Delete.
+
+<details>
+<summary>Click to view - Comments Screenshots</summary>
+
+**Comments on Mobile**
+</br>
+
+![screenshot](assets/documentation/Comments%20Mobile.png)
+
+</br>
+
+**Edit / Delete buttons**
+</br>
+
+![screenshot](assets/documentation/EditDelete%20Buttons.png)
+</br>
+
+**Edit Comment**
+</br>
+
+![screenshot](assets/documentation/Edit.png)
+</br>
+
+**Delete Comment Modal**
+</br>
+
+![screenshot](assets/documentation/Delete.png)
+</br>
+
+**Awaiting Moderator**
+</br>
+
+![screenshot](assets/documentation/Awaiting%20Moderator.png)
+
+</details>
+</br>
+
 **About Page**
 
 The About Page which is responsive, can be accessed via the navigation bar at the top of the website. This page can be managed via Django Admin, allowing the blogger who may not have any website experience to quickly and easily change the image or content. It includes:
@@ -427,6 +476,7 @@ A User who has registered and is returning to the website can access the login f
 * It uses django-allauth to provide the necessary settings for user authentication for the following fields:
     - Username (Required)
     - Password (Required)
+* During the login process the user can tick 'Remember Me' if they want their logins saved.
 * The form can be submitted by clicking the Sign In button.
 * The User will be redirected to the homepage upon successful login.
 * A convenient hyperlink to the Register page is displayed incase the user doesn't have an account.
