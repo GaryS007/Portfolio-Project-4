@@ -1,16 +1,19 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
-
+<!-- Image and H1 at top of blog post -->
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
+                <!-- Post Title -->
                 <h1 class="post-title">{{ post.title }}
                 </h1>
+                <!-- Post Author -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on}} </p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
+                <!-- Featured Image -->
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="{% static 'images/pepperoni-pizza.jpg' %}" width="100%" alt="placeholder">
                 {% else %}
@@ -20,21 +23,23 @@
         </div>
     </div>
 </div>
-
+<!-- Blog Post Content -->
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
+                <!-- Post Content -->
                 <p class="card-text "> {{ post.content | safe }} </p>
                 <div class="row">
 
                     <div class="col-1">
                         <strong>
+                        <!-- Check if User is authenticated -->
                         {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-
+                                <!-- Like Blog Post Buttons -->
                                 <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"
                                     aria-label="like"><i class="fas fa-heart"></i></button>
                                 {% else %}
@@ -46,6 +51,7 @@
                             
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
+                            <!-- Like Button Counter -->
                             <span class="text-secondary"> {{ post.number_of_likes }}</span>
                         </strong>
                     </div>
@@ -61,23 +67,28 @@
             <hr>
         </div>
     </div>
+    <!-- Comments Section -->
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Comments:</h3>
             <div class="card-body">
                 {% for comment in comments %}
+                <!-- Checking if comment is approved and if username matches / Applying Fade if not approved -->
                 <div class="comments{% if not comment.approved and comment.name == user.username %} faded{% elif not comment.approved %} d-none{% endif %}" 
                     style="padding: 10px;">
                     <p class="font-weight-bold">
+                        <!-- Username of commenter -->
                         {{ comment.name }}
                         <span class="font-weight-normal">
+                            <!-- Comment created date -->
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
                     <div id="comment{{ comment.id }}">
+                        <!-- Comment Text -->
                         {{ comment.body | linebreaks }}
                     </div>
-                
+                <!-- Comment Edit / Delete -->
                 {% if not comment.approved and comment.name == user.username %}
                 <p class="approval">This comment is awaiting admin approval</p>
                 {% endif %}
@@ -89,6 +100,7 @@
                 {% endfor %}
             </div>
         </div>
+        <!-- Submit Comment Form -->
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
                 {% if user.is_authenticated %}

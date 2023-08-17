@@ -10,8 +10,10 @@ class Post(models.Model):
     """
     Defines the Post Model
     """
-    title = models.CharField(max_length=200, unique=True, default="Some String")  # noqa
-    slug = models.SlugField(max_length=200, unique=True, null=True, blank=False)  # noqa
+    title = models.CharField(max_length=200, unique=True,
+                             default="Some String")
+    slug = models.SlugField(max_length=200, unique=True,
+                            null=True, blank=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='blog_posts')
     updated_on = models.DateTimeField(auto_now=True)

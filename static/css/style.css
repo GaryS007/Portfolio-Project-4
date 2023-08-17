@@ -3,7 +3,7 @@ body {
 }
 
 .brand {
-    font-family: Lato, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: white;
@@ -109,6 +109,7 @@ body {
 
 .primary-color.contact-btn {
     margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .post-link {
@@ -116,8 +117,18 @@ body {
     color: #445261;
 }
 
-.post-link:hover,
 .page-link {
+    font-weight: bold;
+    background-color: #fdb82a;
+    color: white;
+}
+
+.page-link:hover {
+    color: black;
+    background-color: #fdb82a;
+}
+
+.post-link:hover {
     color: #d53524;
 }
 
@@ -213,5 +224,11 @@ body {
     .col-8 {
         text-align: center;
         margin: auto;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .masthead {
+        height: auto;
     }
 }

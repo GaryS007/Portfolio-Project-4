@@ -12,7 +12,10 @@ It provides the user value by learning about the blogger and recipes they post a
 * [Overview](#overview)
 * [Agile Methodology](#agile-methodology)
 * [User Experience (UX)](#user-experience-ux)
-
+    * [Site Goals](#site-goals)
+    * [Scope / User Stories](#scope--user-stores)
+    * [Wireframes](#wireframes)
+    * [Design Choices](#design-choices)
 
 
 
@@ -73,11 +76,24 @@ ____
 
 ### Wireframes
 
-I created Wireframes using MSPaint to help visualize how the final site would look and to allow me to plan accordingly.
+I created Wireframes using [Balsamiq](https://balsamiq.com/wireframes/) to help visualize how the final site would look and to allow me to plan accordingly. This method really helps me know where each element needs to go, while it might not look the same as the final version, it allows me to tick a lot of boxes then I can make final changes during the building phase where necessary.
+
+**Homepage**
+<details>
+<summary>Click to view - Homepage Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/Mobile%20Homepage.png)
+
+#### Desktop
+![screenshot](assets/wireframes/Desktop%20Homepage.png)
+</details>
+
+#
 
 ### Design Choices
 
-[Back to Top](#table-of-contents
+[Back to Top](#table-of-contents)
 
 ____
 

@@ -36,7 +36,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'garys-pizza-blog.herokuapp.com', 'garys-pizza-blog-f13a1d85eaa1.herokuapp.com',  # noqa
-    '8000-garys007-portfolioproje-3x6u80hitj3.ws-eu103.gitpod.io'
+    '8000-garys007-portfolioproje-3x6u80hitj3.ws-eu104.gitpod.io'
     ]
 
 

@@ -10,6 +10,8 @@ var submitButton = document.getElementById("submitButton");
 
 commentText.value = "";
 
+// Event Listener for delete comment buttons
+
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
         let commentId = e.target.getAttribute("comment_id");
@@ -17,6 +19,8 @@ for (let button of deleteButtons) {
         deleteModal.show();
     });
 }
+
+// Event Listener for Edit comment button
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
