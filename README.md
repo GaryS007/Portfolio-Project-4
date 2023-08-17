@@ -16,6 +16,14 @@ It provides the user value by learning about the blogger and recipes they post a
     * [Scope / User Stories](#scope--user-stores)
     * [Wireframes](#wireframes)
     * [Design Choices](#design-choices)
+* [Features](#features)
+    * [Existing Features](#existing-features)
+    * [Future Features](#future-features)
+* [Technologies Used](#technologies-used)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
+* [Acknowledgements](#acknowledgements)
 
 
 
@@ -51,21 +59,21 @@ ____
 
 ### Scope / User Stores
 
-** As a Site Admin / Blog Owner **
+**As a Site Admin / Blog Owner**
 
 * I can create, read, update and delete posts which enables me to manage my blog content.
 * I can Approve / Dissapprove user comments to prevent spam and to filter out negative comments.
 * I can create a blog post draft so that I can save that draft and finish it later.
 * I can view the number of likes and comments on each post so that I can see which post is the most successful.
 
-** As a User **
+**As a User**
 * I can see the website's logo and links at the top of the page so that I can easily navigate to all parts of the website.
 * I can click on a blog post and read the full post.
 * I can read more information about the blogger.
 * I can use the search box to search for specific recipes.
 * I can Register a new account so I can post, like and comment.
 
-** As a Returning User **
+**As a Returning User**
 * I can use my Username and Password in order to login to my account.
 * I can log out of my account to keep my account safe and also be notified upon logging out.
 * I can post a comment on a specific blog post.
@@ -222,14 +230,13 @@ The header and navigation are featured on all pages and are fully responsive. Th
 
 * A friendly yet simple logo.
 * When on Mobile the navigation can be accessed through the traditional burger menu. Once clicked the drop down will display each individual page including; Home, About, Contact, Login, Register, Logout and a search box. The burger menu keeps the focus on the content of the page and has become a very familiar method among mobile users to access the navigation items. All links have hover effects and active effects when a main page is accessed.
-
-The search box enables users who want to search for a specific recipe or blog post that would suit their interests. 
+* The search box enables users who want to search for a specific recipe or blog post that would suit their interests. 
 * The Login/Register/Logout options change depending on the users status. If they're not logged in, they will be given an option to Register or Login. If they are logged in, the previously mentioned items will disappear and the only remaining option will be Logout.
 * When on Desktop the activity is the same but the menu items are not collapsable like in the burger menu.
 
 <details>
 
-<summary>Click to view - Navigation Features</summary>
+<summary>Click to view - Navigation Screenshots</summary>
 
 **Mobile & Desktop Navigation**
 
@@ -262,7 +269,7 @@ Just like the header and nav, the Footer is featured on all pages and is respons
 
 <details>
 
-<summary>Click to view - Footer Features</summary>
+<summary>Click to view - Footer Screenshots</summary>
 
 **Footer on Mobile**
 
@@ -287,7 +294,7 @@ The Home Page which is responsive, displays all blog posts, each post has an att
 
 <details>
 
-<summary>Click to view - Homepage Features</summary>
+<summary>Click to view - Homepage Screenshots</summary>
 
 **Home Page on Mobile**
 
@@ -299,6 +306,36 @@ The Home Page which is responsive, displays all blog posts, each post has an att
 </details>
 </br>
 
+**Blog Posts**
+
+Each Blog Post is responsive, can be accessed via the main blog (Home page). Each blog post can be populated by the blogger via the Django Admin. It includes:
+* A title relevant to the blog post.
+* A Vibrant image that will be displayed at the top of the page.
+* The author and date the blog post was made.
+* A full detail content section for the blog post.
+* A Like Icon and a Comment icon to show how viral the blog post is.
+* The ability for an authenticated user to make a comment on the post.
+* The ability for all website viewers to read all comments.
+* Blog Posts can be made via Django.
+* Comments made by authenticated users can be approved by an admin in Django.
+
+<details>
+
+<summary>Click to view - Blog Post Screenshots</summary>
+
+**Blog Post on Mobile**
+
+![screenshot](assets/documentation/BlogPost%20Mobile.png)
+![screenshot](assets/documentation/BlogPost%20Mobile2.png)
+
+**Blog Post on Desktop**
+
+![screenshot](assets/documentation/BlogPost.png)
+![screenshot](assets/documentation/BlogPost2.png)
+
+</details>
+</br>
+
 **About Page**
 
 The About Page which is responsive, can be accessed via the navigation bar at the top of the website. This page can be managed via Django Admin, allowing the blogger who may not have any website experience to quickly and easily change the image or content. It includes:
@@ -306,6 +343,7 @@ The About Page which is responsive, can be accessed via the navigation bar at th
 * An Image of Luca in his element showing off his Pizza.
 
 <details>
+<summary>Click to view - About Page Screenshots</summary>
 
 **About Page on Mobile**
 ![screenshot](assets/documentation/About%20Mobile.png)
@@ -316,9 +354,121 @@ The About Page which is responsive, can be accessed via the navigation bar at th
 </details>
 </br>
 
+**Contact Page**
+
+The Contact Page is responsive and can be accessed via the navigation bar at the top of the website. It's a Django form which enables a website visitor to get in touch with Luca in relation to his blog or general enquiries feedback. All Queries are displayed via Django Admin where he can mark them as completed after he has finished responding to them. Essentially using Django as a ticketing system. It includes:
+* Page title.
+* Contact us content section.
+* Contact form to get in touch with the blog owner.
+
+<details>
+<summary>Click to view - Contact Page Screenshots</summary>
+
+**Contact Page on Mobile**
+![screenshot](assets/documentation/Contact%20Mobile.png)
+
+**Contact Page on Desktop**
+![screenshot](assets/documentation/Contact.png)
+
+</details>
+</br>
+
+**Search Page**
+
+The Search Page can be accessed by interacting with the Search Box in the header of the website. It includes:
+
+* The Ability to search for specific blog posts based on a users interest.
+* The search specifically checks the title of the blog post for a match.
+* A clear message if no results matched your search.
+* It displays blog posts for example if you search for 'Pizza' as per the screenshot examples below.
+
+<details>
+<summary>Click to view - Search Page Screenshots</summary>
+
+**Search Page on Mobile**
+![screenshot](assets/documentation/Search%20Page.png)
+
+**Search Page on Desktop**
+![screenshot](assets/documentation/Search.png)
+
+</details>
+</br>
+
+**Register Page**
+
+The Register Page has the functionality which allows a user to register for an account.
+* The fully responsive registration form can be accessed through the navigation bar.
+* It confirms the registered account with messaging to the new user and redirects to the blog page once successfully registered
+* The page is styled to match the rest of the website.
+* A convenient hyperlink to the Login page is displayed incase the user already has an account.
+* Django-allauth is used to provide all settings needed for user authentication for the following fields:
+    - Username (required)
+    - Email (Optional)
+    - Password (Required)
+    - Repeat Password (Required)
+
+<details>
+<summary>Click to view - Register Page Screenshots</summary>
+
+**Register Page on Mobile**
+![screenshot](assets/documentation/Register%20Mobile.png)
+
+**Register Page on Desktop**
+![screenshot](assets/documentation/Register.png)
+
+</details>
+</br>
+
+**Login Page**
+
+A User who has registered and is returning to the website can access the login form through the navigation bar on all pages. It includes:
+* The fully responsive login page can be accessed via the Nav bar if the user isn't already logged in.
+* The page is styled to match the rest of the website.
+* It uses django-allauth to provide the necessary settings for user authentication for the following fields:
+    - Username (Required)
+    - Password (Required)
+* The form can be submitted by clicking the Sign In button.
+* The User will be redirected to the homepage upon successful login.
+* A convenient hyperlink to the Register page is displayed incase the user doesn't have an account.
+* If the visitor doesn't have an account, there is a quick link to the register page.
+* A message will be displayed to confirm that the login was successful.
+
+<details>
+<summary>Click to view - Login Page Screenshots</summary>
+
+**Login Page on Mobile**
+![screenshot](assets/documentation/Login%20Mobile.png)
+
+**Login Page on Desktop**
+![screenshot](assets/documentation/Login.png)
+
+</details>
+</br>
+
+**Logout Page**
+
+A logged in user can easily logout of their account for security purposes. It includes:
+* The fully responsive logout page can be accessed via the Nav bar if a user is currently logged in.
+* The page is styled to match the rest of the website.
+* A Sign Out button can be clicked to sign the user out of the website.
+* The User will be redirected to the homepage once logged out.
+* A message will be displayed to confirm that the logout was successful.
+
+<details>
+<summary>Click to view - Logout Page Screenshots</summary>
+
+**Logout Page on Mobile**
+![screenshot](assets/documentation/Logout%20Mobile.png)
+
+**Logout Page on Desktop**
+![screenshot](assets/documentation/Logout.png)
+
+</details>
+</br>
+
 ____
 
-## Future Features
+### Future Features
 
 [Back to Top](#table-of-contents)
 
@@ -332,10 +482,28 @@ ____
 
 ## Testing
 
-### Bugs
+[Back to Top](#table-of-contents)
 
-### Deployment
+____
+
+## Bugs
+
+[Back to Top](#table-of-contents)
+
+____
+
+## Deployment
+
+[Back to Top](#table-of-contents)
+
+____
 
 ## Credits
+
+[Back to Top](#table-of-contents)
+
+____
+
+## Acknowledgements
 
 
