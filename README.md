@@ -88,10 +88,125 @@ I created Wireframes using [Balsamiq](https://balsamiq.com/wireframes/) to help 
 #### Desktop
 ![screenshot](assets/wireframes/Desktop%20Homepage.png)
 </details>
+</br>
 
-#
+**Blog Post**
+<details>
+<summary>Click to view - Blog Post Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/Blog%20Post%20Mobile.png)
+
+#### Desktop
+![screenshot](assets/wireframes/Blog%20Post.png)
+</details>
+</br>
+
+**Edit Comment - Blog Post**
+<details>
+<summary>Click to view - Edit Comment Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/Edit%20Comment%20Mobile.png)
+
+#### Desktop
+![screenshot](assets/wireframes/Edit%20Comment.png)
+</details>
+</br>
+
+**Delete Comment - Blog Post**
+<details>
+<summary>Click to view - Delete Comment Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/Delete%20Comment%20Mobile.png)
+
+#### Desktop
+![screenshot](assets/wireframes/Delete%20Comment.png)
+</details>
+</br>
+
+**About Page**
+<details>
+<summary>Click to view - About Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/About%20Mobile.png)
+
+#### Desktop
+![screenshot](assets/wireframes/About.png)
+</details>
+</br>
+
+**Contact Page**
+<details>
+<summary>Click to view - Contact Page Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/Contact%20Mobile.png)
+
+#### Desktop
+![screenshot](assets/wireframes/Contact.png)
+</details>
+</br>
+
+**Search Page**
+<details>
+<summary>Click to view - Search Page Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/Search%20Mobile.png)
+
+#### Desktop
+![screenshot](assets/wireframes/Search.png)
+</details>
+</br>
+
+**Register User Page**
+<details>
+<summary>Click to view - Register/Signup Page Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/Register%20Mobile.png)
+
+#### Desktop
+![screenshot](assets/wireframes/Register.png)
+</details>
+</br>
+
+**Login Page**
+<details>
+<summary>Click to view - Login Page Wireframes</summary>
+
+#### Mobile
+![screenshot](assets/wireframes/Login%20Mobile.png)
+
+#### Desktop
+![screenshot](assets/wireframes/Login.png)
+</details>
+
 
 ### Design Choices
+
+This section defines the visual decisions of the website
+
+* Colour Scheme
+
+Using [Canva](https://www.canva.com/colors/color-palette-generator/) a Black, Yellow and Red colour palette was chosen for this website. Keeping the Header Black with the Yellow colour to allow all nav items and buttons to pop. Then I kept the Red as that is a general pizza colour (tomato sauce!) which felt very relevant for the blog. It resulted in a professional yet vibrant feel to the website.
+
+![Blog Colour Palette](assets/documentation/canva.png)
+
+Punch (Red) was used to provide the pop of colour where needed.
+Mako (Black) was used for the header and footer for the professional look.
+Tulip Tree (Yellow) was used for Navigation, Buttons and some in the text logo.
+
+* Typography
+
+[Google Fonts](https://fonts.google.com/) Poppins and Lato were used throughout the site. Both of which are Sans-Serif and make the site very readable.
+
+* Icons
+
+[Font Awesome](https://fontawesome.com/) icons were used throughout the website, primarily in the Footer for social icons and also on the blog page for Likes and Comment icons. All of which are interactive.
 
 [Back to Top](#table-of-contents)
 
@@ -101,19 +216,117 @@ ____
 
 ### Existing Features
 
-[Back to Top](#table-of-contents
+**Header & Nav**
+
+The header and navigation are featured on all pages and are fully responsive. They include:
+
+* A friendly yet simple logo.
+* When on Mobile the navigation can be accessed through the traditional burger menu. Once clicked the drop down will display each individual page including; Home, About, Contact, Login, Register, Logout and a search box. The burger menu keeps the focus on the content of the page and has become a very familiar method among mobile users to access the navigation items. All links have hover effects and active effects when a main page is accessed.
+
+The search box enables users who want to search for a specific recipe or blog post that would suit their interests. 
+* The Login/Register/Logout options change depending on the users status. If they're not logged in, they will be given an option to Register or Login. If they are logged in, the previously mentioned items will disappear and the only remaining option will be Logout.
+* When on Desktop the activity is the same but the menu items are not collapsable like in the burger menu.
+
+<details>
+
+<summary>Click to view - Navigation Features</summary>
+
+**Mobile & Desktop Navigation**
+
+**Closed Menu Mobile**
+
+![screenshot](assets/documentation/Closed%20Menu.png)
+</br>
+
+**Open Menu Mobile**
+
+![screenshot](assets/documentation/Open%20Menu.png)
+</br>
+
+**Desktop Navigation**
+
+![screenshot](assets/documentation/Desktop%20Menu.png)
+
+[Back to Top](#table-of-contents)
+
+</details>
+</br>
+
+**Footer**
+
+Just like the header and nav, the Footer is featured on all pages and is responsive. The footer enables visitors to the website to view the bloggers social links so they can further network and view the bloggers content on other platforms/applications. It includes:
+
+* Short attractive summary of website.
+* Vibrant Social Media Icons allowing users to connect further with Luca.
+* Copyright information in a subtle colour.
+
+<details>
+
+<summary>Click to view - Footer Features</summary>
+
+**Footer on Mobile**
+
+![screenshot](assets/documentation/Mobile%20Footer.png)
+
+**Footer on Desktop**
+
+![screenshot](assets/documentation/Footer.png)
+
+</details>
+
+**Homepage**
+
+The Home Page which is responsive, displays all blog posts, each post has an attractive image and excerpt to attract users. It includes:
+* Vibrant Imagery relevant to the blog post to entice a click.
+* Each Image and Title is a clickable URL which will take them to the blog post. This makes it more mobile friendly when the image is clickable.
+* Each blog post contains a title and excerpt to provide additional information on what the post is about.
+* The popularity of the Blog post is displayed via the Heart Icon.
+* The Author is posted over the image so they can see who made the post.
+* The date and time is displayed so the user can see when the post was made.
+* The next button is at the bottom of the page content so users can read more posts.
+
+<details>
+
+<summary>Click to view - Homepage Features</summary>
+
+**Home Page on Mobile**
+
+![screenshot](assets/documentation/Mobile%20Footer.png)
+
+**Home Page on Desktop**
+
+![screenshot](assets/documentation/Mobile%20Footer.png)
+</details>
+</br>
+
+**About Page**
+
+The About Page which is responsive, can be accessed via the navigation bar at the top of the website. This page can be managed via Django Admin, allowing the blogger who may not have any website experience to quickly and easily change the image or content. It includes:
+* Detailed information about Luca, why he created the blog, his history and experience. For anyone reading the blog posts, this page allows users to understand and connect with Luca even more.
+* An Image of Luca in his element showing off his Pizza.
+
+<details>
+
+**About Page on Mobile**
+![screenshot](assets/documentation/About%20Mobile.png)
+
+**About Page on Desktop**
+![screenshot](assets/documentation/About.png)
+
+</details>
+</br>
 
 ____
 
 ## Future Features
 
-[Back to Top](#table-of-contents
+[Back to Top](#table-of-contents)
 
 ____
 
 ## Technologies Used
 
-[Back to Top](#table-of-contents
+[Back to Top](#table-of-contents)
 
 ____
 
