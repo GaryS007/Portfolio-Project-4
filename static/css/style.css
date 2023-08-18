@@ -230,6 +230,23 @@ body {
     text-align: center;
 }
 
+div.form {
+    display: block;
+    text-align: center;
+}
+
+.contact-form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col-8.max-width {
+    width: 100%;
+}
+
+
+
 @media only screen and (max-width: 600px) {
     .text-center {
         display: none;

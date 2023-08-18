@@ -2,19 +2,20 @@
 {% block content %}
 {% load static %}
 
-    <div class="col-8 center-content">
+<div class="col-8 max-width center-content">
     <br><br>
-        <h1>Contact Luca</h1>
+    <h1>Contact Luca</h1>
     <br><br>
-        <p>Thank you for your interest in getting in touch with Luca! We value your feedback, inquiries, and any potential collaborations. 
-            Please feel free to reach out to us using the contact form below.</p>
-    </div>
-<br><br>
-            <div class="col-8 center-content">
-                <form action="#" method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type ="submit" class="btn btn-primary primary-color contact-btn" value="Submit">
-                </form>
-            </div>
+    <p>Thank you for your interest in getting in touch with Luca! We value your feedback, inquiries, and any potential collaborations. 
+       Please feel free to reach out to us using the contact form below.
+    </p>
+ </div>
+ <br><br>
+ <div class="col-8 max-width form">
+    <form class="contact-form" action="#" method="POST">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <input type ="submit" class="btn btn-primary primary-color contact-btn" value="Submit">
+    </form>
+ </div>
 {% endblock content %}
