@@ -133,7 +133,7 @@ def search_recipes(request):
 
     if request.method == "POST":
         search = request.POST["search"]
-        recipes = Post.objects.filter(title__contains=search)
+        recipes = Post.objects.filter(title__icontains=search)
 
         return render(
             request, "search_recipes.html", {"search": search,
