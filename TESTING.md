@@ -65,3 +65,9 @@ I have tested my deployed website on Mobile and Tablet to ensure each page was r
 | Search Page | ![screenshot](assets/documentation/SearchMobile.png) | ![screenshot](assets/documentation/SearchTablet.png) |
 | Edit and Delete Comments | ![screenshot](assets/documentation/EditDelete%20Buttons.png) | ![screenshot](assets/documentation/EditDelete%20Tablet.png) |
 
+## LightHouse Testing
+
+Google Chrome Built Lighthouse was tested in Incognito Mode to test all pages.
+
+![screenshot](assets/documentation/Lighthouse.png)
+
