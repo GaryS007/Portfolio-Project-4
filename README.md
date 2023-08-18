@@ -16,10 +16,14 @@ It provides the user value by learning about the blogger and recipes they post a
     * [Scope / User Stories](#scope--user-stores)
     * [Wireframes](#wireframes)
     * [Design Choices](#design-choices)
+    * [Database Design](#database-design)
 * [Features](#features)
     * [Existing Features](#existing-features)
     * [Future Features](#future-features)
 * [Technologies Used](#technologies-used)
+    * [Languages](#languages)
+    * [Libraries & Frameworks](#libraries--frameworks)
+    * [Tools](#tools)
 * [Testing](#testing)
 * [Deployment](#deployment)
 * [Credits](#credits)
@@ -61,24 +65,27 @@ ____
 
 **As a Site Admin / Blog Owner**
 
-* I can create, read, update and delete posts which enables me to manage my blog content.
-* I can Approve / Dissapprove user comments to prevent spam and to filter out negative comments.
-* I can create a blog post draft so that I can save that draft and finish it later.
-* I can view the number of likes and comments on each post so that I can see which post is the most successful.
+* I can create, read, update and delete posts which enables me to manage my blog content.[#9](https://github.com/GaryS007/Portfolio-Project-4/issues/9)
+* I can Approve / Dissapprove user comments to prevent spam and to filter out negative comments.[#11](https://github.com/GaryS007/Portfolio-Project-4/issues/11)
+* I can create a blog post draft so that I can save that draft and finish it later.[#10](https://github.com/GaryS007/Portfolio-Project-4/issues/10)
+* I can view the number of likes and comments on each post so that I can see which post is the most successful.[#5](https://github.com/GaryS007/Portfolio-Project-4/issues/5)
+* I can add content to my about page so that users can read more about the blogger. [#15](https://github.com/GaryS007/Portfolio-Project-4/issues/15)
+* I can add content to the contact page so that users can get in touch with the blogger. [[#17](https://github.com/GaryS007/Portfolio-Project-4/issues/17)]
 
 **As a User**
-* I can see the website's logo and links at the top of the page so that I can easily navigate to all parts of the website.
-* I can click on a blog post and read the full post.
-* I can read more information about the blogger.
-* I can use the search box to search for specific recipes.
-* I can Register a new account so I can post, like and comment.
+* I can see the website's logo and links at the top of the page so that I can easily navigate to all parts of the website. [[#1](https://github.com/GaryS007/Portfolio-Project-4/issues/1)
+* I can click on a blog post and read the full post.[#2](https://github.com/GaryS007/Portfolio-Project-4/issues/2)
+* I can read more information about the blogger.[#13](https://github.com/GaryS007/Portfolio-Project-4/issues/13)
+* I can use the search box to search for specific recipes.[#14](https://github.com/GaryS007/Portfolio-Project-4/issues/14)
+* I can Register a new account so I can post, like and comment.[#6](https://github.com/GaryS007/Portfolio-Project-4/issues/6)
+* I can contact the blogger directly. [#17](https://github.com/GaryS007/Portfolio-Project-4/issues/17)
 
 **As a Returning User**
-* I can use my Username and Password in order to login to my account.
-* I can log out of my account to keep my account safe and also be notified upon logging out.
-* I can post a comment on a specific blog post.
-* I can like or unlike blog posts so that I can interact with the content.
-* I can Edit / Delete a comment made by my account.
+* I can use my Username and Password in order to login to my account.[#6](https://github.com/GaryS007/Portfolio-Project-4/issues/6)
+* I can post a comment on a specific blog post.[#4](https://github.com/GaryS007/Portfolio-Project-4/issues/4)
+* I can like or unlike blog posts so that I can interact with the content.[#5](https://github.com/GaryS007/Portfolio-Project-4/issues/5)
+* I can Edit / Delete a comment made by my account.[#12](https://github.com/GaryS007/Portfolio-Project-4/issues/12)
+* I can see how many comments a blog post has so that I see how viral the post is. [#18](https://github.com/GaryS007/Portfolio-Project-4/issues/18)
 
 ____
 
@@ -218,6 +225,37 @@ Tulip Tree (Yellow) was used for Navigation, Buttons and some in the text logo.
 
 [Back to Top](#table-of-contents)
 
+### Database Design
+
+I created an entity relationship using [draw.io](https://app.diagrams.net/). This helped me understand the database design and what field each model would require.
+
+<details>
+<summary>Click to view Entity Relationship Diagram</summary>
+
+![Entity Relationship Diagram](assets/documentation/entity.png)
+
+</details>
+<br>
+
+My custom models were influenced by the I Think Therefore I blog project. I customized them slightly, including a function to the Post model to show a comment count on the home page. As well as that, I changed some attributes to various models.
+
+* **The About Model** enables an admin to update Image & Text content on the About Page via Django Admin. This was created as an entirely separate app. The About Model has 3 fields.
+
+    - title (CharField)
+    - profile_image (CloudinaryField)
+    - content (TextField)
+
+* **The ContactEnquiry Model** is for the Contact Page, I created a custom form and model to achieve this. The Admin can view all contact form entries in the Django admin and use the Completed field to mark each one as completed after they have acknowledged the message or responded. The ContactEnquiry Model has 6 fields.
+
+    - email (EmailField)
+    - name (CharField)
+    - message (TextField)
+    - subject (CharField)
+    - completed (BooleanField)
+    - created_on (DateTimeField)
+<br>
+
+[Back to Top](#table-of-contents)
 ____
 
 ## Features
@@ -525,11 +563,60 @@ ____
 
 ### Future Features
 
+* Like / Unlike Heart buttons on Blog Posts currently refresh the page, I would like to implement a solution that requires AJAX.
+* The ability to Reply to Comments so the blogger/user can respond to all comments received and the community can discuss the recipies in the comments.
+* The ability for users to like other users comments.
+* Single Sign-on using Google, Facebook or other authentication services.
+* Have Approved Super users, after 10 comments a User should be upgraded to a higher user level, thus allowing them to comment without requiring admin approval.
+
 [Back to Top](#table-of-contents)
 
 ____
 
 ## Technologies Used
+
+### Languages
+
+* [Python](https://www.python.org/downloads/release/python-3811/)
+* [HTML5](https://www.w3schools.com/html/)
+* [CSS3](https://www.w3schools.com/css/css_intro.asp)
+* [JavaScript](https://www.w3schools.com/js/)
+
+### Libraries & Frameworks
+
+* [Django 3.2.20](https://www.djangoproject.com/) - Free and open source Python Web Framework.
+* [Gunicorn 21.2.0](https://gunicorn.org/) - A Python WSGI HTTP server compatible with Django and used to run the project on Heroku.
+* [PostgreSQL 0.5.0](https://www.postgresql.org/) - A powerful, open-source object-relational database system.
+* [Pyscopg2 2.9.6](https://www.psycopg.org/docs/) - A PostgreSQL database adapter for Python.
+* [Cloudinary 1.33.0](https://cloudinary.com/) - A persistent file store for media.
+* [Whitenoise 6.5.0](https://whitenoise.readthedocs.io/en/latest/) - A Python library, built for serving static files.
+* [Heroku](https://www.heroku.com) - A cloud platform as a service
+* [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database hosting service
+* [SQLite3](https://docs.python.org/3/library/sqlite3.html) - The database provided by Django
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) - Integrated set of Django applications addressing authentication and registration
+* [Bootstrap 4.6.2](https://getbootstrap.com/docs/4.6/getting-started/introduction/) - A Framework for building responsive, mobile-fist sites
+* [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Provides a |crispy filter and {% crispy %} tag that helps control the rendering behavior of Django forms.
+* [Summernote 0.8.20.0](https://summernote.org/getting-started/) - a JavaScript library that helps you create WYSIWYG editors online
+
+### Tools
+
+* [GitPod](https://www.gitpod.io/) - Cloud development Environment used.
+* [GitHub](https://github.com/) - Cloud based git repository used.
+* [W3C Validator](https://validator.w3.org/) - Validator that checks the markup validity for Web Documents in HTML.
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - Validator that checks CSS validity.
+* [Code Beautify](https://codebeautify.org/jsvalidate) - Validator that checks JS Validity.
+* [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) - Validator that checks syntax and stlistic problems in Python code.
+* [Canva](https://www.canva.com/colors/color-palette-generator/) - Color Palette Generator
+* [Am I responsive](https://ui.dev/amiresponsive) - Generates Responsive images for your website.
+* [Chrome DevTools and Lighthouse](https://developer.chrome.com/docs/devtools/) - Web Developer Tools.
+* [GIMP](https://www.gimp.org/) - Resizes, Crops and Edits images.
+* [Pixabay](https://pixabay.com/) - Royalty Free images.
+* [Pexels](https://www.pexels.com/) - Royalty Free Images.
+* [Google Fonts](https://fonts.google.com/) - Fonts
+* [Font Awesome](https://fontawesome.com/) - Icons
+* [Balsamiq](https://balsamiq.com/wireframes/) - Low Fidelity Wireframes
+* [draw.io](https://app.diagrams.net/) - Diagram Software
+
 
 [Back to Top](#table-of-contents)
 
@@ -537,11 +624,28 @@ ____
 
 ## Testing
 
+View the TESTING.md file for all testing information.
+
 [Back to Top](#table-of-contents)
 
 ____
 
 ## Bugs
+
+* ```name = models.CharField(max_length=80)``` - I had unique set to true which caused this error - IntegrityError at /breakfast-pizza/
+duplicate key value violates unique constraint "blog_comment_name_key"
+
+This was my first encounter with attribute based errors, fixing this one by using google allowed me to learn a lot more about various attributes throughout my project.
+
+* I never imported messages from django.contrib and got this error - from django.contrib import messages
+
+Don't forget to import!!
+
+* I had the name field in my models.py file set to 'unqique' for class Comment - this prevented the same user from making more than 1 comment. Thanks to the first issue, this was solved quickly. But I only luckily found it via extensive testing.
+
+* comment_delete function was missing an arguement and prevented comments from getting deleted. Updated the slug=slug here - ``post = get_object_or_404(queryset, slug=slug)``
+
+* The search field I added was case sensitive. If you searched for 'pizza' no results would be found, while 'Pizza' worked fine. To fix this I changed my views.py filter to - ``recipes = Post.objects.filter(title__icontains=search)`` - You can also use 'contains'.
 
 [Back to Top](#table-of-contents)
 
@@ -549,16 +653,176 @@ ____
 
 ## Deployment
 
+**1 - Database Setup** - I setup PostgreSQL database using ElephantSQL, I used these steps:
+    - Create an account for ElephantSQL
+    - Create a new instance with a unique name.
+    - Select Tiny Turtle Plan (It's Free).
+    - Select the closest region to you.
+    - After it's created, document the Database URL and password.
+<br>
+
+____
+
+**2 - Cloudinary API Integration** - To store media files online, I needed to integrate the Cloudinary API into my application by following these steps:
+    - Create an account with Cloudinary.
+    - On the Cloudinary Dashboard get your API Environment Variable
+    - Copy the API key.
+    - Add the API Key to the "DATABASE_URL" variable.
+    - Be sure to install the package in your environment - pip3 install django-cloudinary-storage
+<br>
+
+____
+
+**3 - Deploying on Heroku:**
+    - Create an account with Heroku.
+    - Create your new app via the Heroku Dashboard.
+    - Access your app settings and set up Config Vars:
+        - CLOUDINARY_URL - Copy and Paste your Cloudinary API Key.
+        - DATABASE_URL - Use the ElphantSQL Postgres DB URL here.
+        - SECRET_KEY - Generate a Secret Key in Django for this (I used [Django Secret Key Generator](https://djecrety.ir/))
+        - DISABLE_COLLECTSTATIC=1 - I have this set during the building phase, prior to deployment.
+    - Connect GitHub Repo to your Heroku App.
+    - During the build phase I manually Pushed my code when needed. When I was ready to do my final deploy, I set it to automatic.
+    - **Additional Notes** - Ensure you have your requirements.txt file updated after all package installs with pip3 freeze > requirements.txt in the terminal.
+    - **Additional Notes** - Ensure you create your Procfile, to do this run this command - web: gunicorn projectfolder.wsgi:application (Replace projectfolder with your own name).
+
+____
+
+**4 - Create the env.py file**
+With the database created and your initial Heroku setup completed. You now need to connect it within the project. Specific variables need to be kept secure and cannot be published to GitHub.
+    - Create an env.py file and add it to .gitignore.
+    - Put 'import os' at the top of the file. Set the DATABASE_URL variable using the ``os.environ`` method. Add the URL from your DB here like this - `` os.environ["DATABASE_URL"] = "secureURL" ``
+    - Your SECRET_KEY you put into Heroku Config Vars needs to be entered into your env.py as well. ``os.environ["SECRET_KEY"] = "SecretKey"
+
+____
+
+**5 - Update settings.py file**
+* Next we need to make our project aware of the env.py file in order to connect our environment to the new database.
+    - Add the following if statement which allows the application to run without the env.py file:
+    ```
+        import os
+    import dj_database_url
+
+    if os.path.isfile(‘env.py’):
+        import env
+    ```
+____
+
+<br>
+
+* Replace the insecure secret key provided by Django with:
+    ``SECRET_KEY = os.environ.get('SECRET_KEY')``
+
+* When testing and working locally, leave ``DEBUG = True`` in your settings.py file. When you are pushing to production, change this to ``DEBUG = False``
+
+* Change the existing DB connection in settings.py to use a URL. Comment out the following:
+```
+        DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+
+Replace with this.
+``
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+``
+____
+
+* **Cloudinary & Whitenoise** - I used both Cloudinary and Whitenoise in my project, cloudinary for imagery and whitenoise for serving static files. As a result my set up was a bit unique.
+    - Update your INSTALLED_APPS ensuring that they are in the correct order. Like so:
+```
+    'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
+```
+    - Add the following under MIDDLEWARE:
+```
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+```
+    - You will need to go to the Cloudinary &
+```
+        MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # noqa
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'  # noqa
+
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+____
+
+* **Add Heroko Host Name**
+
+In settings.py go to ALLOWED_HOSTS and add the Heroku Host name. When testing locally, you will also need to include the URL for your website after typing python3 manage.py runserver. 'localhost' can work, but for me it didn't.
+This 8000-garys007 url reset for me on a weekly basis, so when you go to runserver and get an error. It will provide the new URL, simply replace the old one.
+```
+ALLOWED_HOSTS = [
+    'garys-pizza-blog.herokuapp.com', 'garys-pizza-blog-f13a1d85eaa1.herokuapp.com',
+    '8000-garys007-portfolioproje-3x6u80hitj3.ws-eu104.gitpod.io'
+    ]
+```
+
+____
+
+* **Forking Github Repo**
+
+    - Locate the Github Repo, Link can be found [here](https://github.com/GaryS007/Portfolio-Project-4).
+    - Click 'Fork' at the top right hand corner.
+    - This will redirect you to your own repository to a fork with the same name as the original branch.
+
+____
+
+* **Creating a Local Clone**
+    - Locate the Github Repo, Link can be found [here](https://github.com/GaryS007/Portfolio-Project-4).
+    - Click on 'Code' over on the right hand side. Select HTTPs from the drop down and copy the URL.
+    - Open Git Bash in your IDE and change the current working directory to the new location where you want the cloned directory.
+    - Type ``git clone``, then simply paste the URL you copied in step 2.
+
+You can read more information on how to do this through the offical GitHub Documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+
 [Back to Top](#table-of-contents)
 
 ____
 
 ## Credits
 
-[Back to Top](#table-of-contents)
+I used the following walkthroughs which really helped shape my project, I never copied and pasted any code, all code was written manually to ensure I understand every component of my application. I've always wanted to do a blog about Pizza as I own 2 Pizza ovens so the following really influenced my project:
+    - Code Institute's 'I Think Therefore I Blog' - This project was fantastic and simple. I really wanted to expand on this concept, changing elements and adding my own models. A big thanks for Code Institute for allowing us to use this as a base for my own blog.
+    - Another Code Institute MASTER CLASS via the [Django Blog Webinar](https://www.youtube.com/watch?v=YH--VobIA8c&ab_channel=MediaUpload). This really helped me solidify my knowledge with Django and generate new ideas.
+    - Code Institute Slack Community - I thought my questions were unique, being able to search through the past experiences of other students is extremely beneficial and really easy to use.
+    - Code Institute Tutors - When you really hit that coding wall after exhausting various options, you have a team of friendly helpful coders who can point you in the right direction.
+    - [Stackoverflow](https://stackoverflow.com/) - So much information, so many people problem solving and trying to help. A lot of time spent here.
+    - Youtube - I watched various tutorials from various sources, this would help with ideas, see how they approach implementing a solution so I can then implement it my own way. There are so many ways to do everything!
+        - More specifically, Corey Schafer and John Abdsho Khosrowabadi videos I found extremely helpful.
+    - ChatGBT helped me generate meaningful text for the website.
+    
+**Media**
+
+All images were taken from Pexels & Pixabay, however 1 image is my own Pizza Oven and Pizza which I'm very proud to include in my blog.
 
 ____
 
 ## Acknowledgements
+
+A Special Thanks to everyone who helped me with this project.
+    - My Mentor Jubril Akolade who really helped guide me on exactly what I need to do, spot what I was missing. Extremely professional and easy to work with.
+    - My friends and family who helped me with testing as well as feedback throughout development.
+    - My study group for sharing about their projects throughout each project.
+    - Again I have to thank Tutor Support as they're amazing.
+    - Also Student Support for supporting me through tough times during this project.
+    
+[Back to Top](#table-of-contents)
+
+____
+
+
 
 
