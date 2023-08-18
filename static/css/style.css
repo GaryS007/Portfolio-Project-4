@@ -226,6 +226,10 @@ body {
     color: rgba(0, 0, 0, 0.5);
 }
 
+.center-content {
+    text-align: center;
+}
+
 @media only screen and (max-width: 600px) {
     .text-center {
         display: none;

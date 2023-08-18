@@ -2,22 +2,19 @@
 {% block content %}
 {% load static %}
 
-<center>
-    <div class="col-8">
-    </br></br>
+    <div class="col-8 center-content">
+    <br><br>
         <h1>Contact Luca</h1>
-    </br></br>
+    <br><br>
         <p>Thank you for your interest in getting in touch with Luca! We value your feedback, inquiries, and any potential collaborations. 
             Please feel free to reach out to us using the contact form below.</p>
     </div>
-</br></br>
-        <center>
-            <div class="col-8">
-                <form action="" method="POST">
+<br><br>
+            <div class="col-8 center-content">
+                <form action="#" method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <input type ="submit" class="btn btn-primary primary-color contact-btn" value="Submit">
                 </form>
             </div>
-        </center>
 {% endblock content %}

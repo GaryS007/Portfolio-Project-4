@@ -15,10 +15,10 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://raw.githubusercontent.com/GaryS007/Portfolio-Project-4/main/static/images/pepperoni-pizza.jpg">
+                                    src="https://raw.githubusercontent.com/GaryS007/Portfolio-Project-4/main/static/images/pepperoni-pizza.jpg" alt="Pepperoni Pizza image">
                                 {% else %}
                                 <a href="{% url 'post_detail' post.slug %}">
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}"></a>
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="A vibrant image relevant to the blog post title"></a>
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>

@@ -2,15 +2,14 @@
 {% load static %}
 
 
-    <center>
     {% if search %}
-        <h1>You Searched For "{{ search }}"</h1>
+        <h1 class="center-content">You Searched For "{{ search }}"</h1>
         <br/>
         {% for recipe in recipes %}
-            <div class="col-md-4">
+            <div class="col-md-4 center-content">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div class="image-container">
+                        <div class="image-container justify-content-center">
                             {% if "placeholder" in recipe.featured_image.url %}
                             <img class="card-img-top"
                                 src="https://raw.githubusercontent.com/GaryS007/Portfolio-Project-4/main/static/images/pepperoni-pizza.jpg">
@@ -38,6 +37,5 @@
     {% else %}
         <h1>Hey! You Forgot to Search for a Recipe...</h1>
     {%  endif %}
-    </center>
 
 {% endblock %}
