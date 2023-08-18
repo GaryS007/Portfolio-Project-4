@@ -38,7 +38,7 @@ class Post(models.Model):
 
     def number_of_likes(self):
         """
-        Returns the number of times the likes object appears
+        Returns the number of likes
         using built in python function count()
         """
         return self.likes.count()
@@ -48,6 +48,13 @@ class Post(models.Model):
         Returns the full URL to the home route as a string
         """
         return reverse('home')
+
+    def number_of_comments(self):
+        """
+        Returns the number of comments
+        using built in python function count()
+        """
+        return self.comments.count()
 
 
 class Comment(models.Model):

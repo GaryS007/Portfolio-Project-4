@@ -220,6 +220,12 @@ body {
     font-weight: bold;
 }
 
+.font-weight-normal {
+    font-weight: normal;
+    color: #000;
+    color: rgba(0, 0, 0, 0.5);
+}
+
 @media only screen and (max-width: 600px) {
     .text-center {
         display: none;

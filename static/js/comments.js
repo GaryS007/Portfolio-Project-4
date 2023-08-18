@@ -5,6 +5,7 @@ var deleteConfirm = document.getElementById("deleteConfirm");
 var commentText = document.getElementsByTagName("textarea")[0];
 var commentForm = document.getElementById("commentForm");
 var submitButton = document.getElementById("submitButton");
+var likeButton = document.getElementsByClassName("btn-like");
 
 // empty the comment text after post
 

@@ -287,7 +287,7 @@ The Home Page which is responsive, displays all blog posts, each post has an att
 * Vibrant Imagery relevant to the blog post to entice a click.
 * Each Image and Title is a clickable URL which will take them to the blog post. This makes it more mobile friendly when the image is clickable.
 * Each blog post contains a title and excerpt to provide additional information on what the post is about.
-* The popularity of the Blog post is displayed via the Heart Icon.
+* The popularity of the Blog post is displayed via the Heart Icon and the Comment Icon.
 * The Author is posted over the image so they can see who made the post.
 * The date and time is displayed so the user can see when the post was made.
 * The next button is at the bottom of the page content so users can read more posts.
@@ -348,6 +348,7 @@ Any registered User has the ability to comment on a specific blog post, they can
 * If Edited, the 'Submit' button will automatically change to 'Update' and the comment body will be populated with their current message.
 * If they click Delete, a Modal will appear asking them to confirm if they want to delete the comment to prevent missclicks.
 * Depending on the option they choose there will be consistent alert messages for each option Add/Edit/Delete.
+* When commenting, it will show you the name of the logged in user by saying 'Posting as: USERNAME'.
 
 <details>
 <summary>Click to view - Comments Screenshots</summary>
@@ -363,12 +364,14 @@ Any registered User has the ability to comment on a specific blog post, they can
 </br>
 
 ![screenshot](assets/documentation/EditDelete%20Buttons.png)
+
 </br>
 
 **Edit Comment**
 </br>
 
 ![screenshot](assets/documentation/Edit.png)
+
 </br>
 
 **Delete Comment Modal**
@@ -515,6 +518,8 @@ A logged in user can easily logout of their account for security purposes. It in
 
 </details>
 </br>
+
+[Back to Top](#table-of-contents)
 
 ____
 
