@@ -1,0 +1,244 @@
+body {
+    background-color: #F9FAFC;
+}
+
+.brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+}
+
+#my-nav .nav-link {
+    color: #fdb82a;
+}
+
+.header-font {
+    color: #fdb82a;
+    font-style: italic;
+}
+
+.pizza-logo {
+    color: #fdb82a;
+    text-decoration: underline;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #3F444B;
+}
+
+.main-bg {
+    background-color: #F9FAFC;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #d53524;
+}
+
+.author {
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #d53524;
+    color: white;
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #d53524;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+#submitButton.btn-primary {
+    background-color: #fdb82a;
+    border-color: #fdb82a;
+    margin-top: 5px;
+}
+
+.btn-primary.primary-color {
+    background-color: #fdb82a;
+    border-color: #fdb82a;
+}
+
+.primary-color.contact-btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #445261;
+}
+
+.page-link {
+    font-weight: bold;
+    background-color: #fdb82a;
+    color: white;
+}
+
+.page-link:hover {
+    color: black;
+    background-color: #fdb82a;
+}
+
+.post-link:hover {
+    color: #d53524;
+}
+
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #E84610;
+}
+
+.link {
+    color: #fdb82a;
+    text-decoration: none;
+}
+
+#my-nav .nav-link:hover {
+    font-weight: bold;
+    color: #fdb82a;
+}
+
+#my-nav .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.nav-item .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
+}
+
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
+
+.btn-delete {
+    color: white;
+    background: #E84610;
+}
+
+.btn-edit.btn-signup {
+    background: #fdb82a;
+}
+
+.btn-primary.primary-color:hover {
+    color: black;
+}
+
+.faded {
+    color: rgb(172, 172, 175);
+}
+
+.approval {
+    color: rgb(232, 70, 16);
+}
+
+.navbar-nav {
+    padding-left: 40px !important;
+}
+
+.about {
+    margin-top: 40px;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.font-weight-normal {
+    font-weight: normal;
+    color: #000;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 600px) {
+    .text-center {
+        display: none;
+    }
+
+    .col-8 {
+        text-align: center;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .masthead {
+        height: auto;
+    }
+}
