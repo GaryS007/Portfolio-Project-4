@@ -12,23 +12,24 @@
     <title>Luca's Pizza Blog</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
+    <!-- Static CSS File -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
-
+<!-- Navigation -->
 <body class="d-flex flex-column h-100 main-bg">
-
-    <!-- Navigation -->
-
     <nav id="my-nav" class="navbar navbar-expand-lg navbar-light dark-bg">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Luca's <span class="pizza-logo">Pizza</span><span
@@ -93,6 +94,7 @@
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
+    
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
@@ -128,6 +130,8 @@
     {% block extras %}
     
     {% endblock extras %}
+    </main>
+
 </body>
 
 </html>
