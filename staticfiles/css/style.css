@@ -18,6 +18,10 @@ body {
     font-style: italic;
 }
 
+.center-content {
+    text-align: center;
+}
+
 .pizza-logo {
     color: #fdb82a;
     text-decoration: underline;

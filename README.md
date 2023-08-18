@@ -1,12 +1,12 @@
 # Luca's Pizza Blog
 
+![responsive mockup](assets/documentation/Responsive.png)
+
 Luca's Pizza Blog is a full-stack, responsive website built for a Pizza Chef looking to share and educate users on the art of pizza.
 
 It provides the user value by learning about the blogger and recipes they post about. It has a Search Box that enables the user to search for specific recipes. Users can register an account, view blog posts, like blog posts and add / edit / delete comments they make on a specific blog post.
 
-# RESPONSIVE IMAGE GOES HERE
-
-# LINK TO WEBSITE WILL GO HERE
+# [Link to Live Website](https://garys-pizza-blog-f13a1d85eaa1.herokuapp.com/)
 
 ## Table of Contents
 * [Overview](#overview)
@@ -28,8 +28,6 @@ It provides the user value by learning about the blogger and recipes they post a
 * [Deployment](#deployment)
 * [Credits](#credits)
 * [Acknowledgements](#acknowledgements)
-
-
 
 ____
 
@@ -70,10 +68,13 @@ ____
 * I can create a blog post draft so that I can save that draft and finish it later.[#10](https://github.com/GaryS007/Portfolio-Project-4/issues/10)
 * I can view the number of likes and comments on each post so that I can see which post is the most successful.[#5](https://github.com/GaryS007/Portfolio-Project-4/issues/5)
 * I can add content to my about page so that users can read more about the blogger. [#15](https://github.com/GaryS007/Portfolio-Project-4/issues/15)
-* I can add content to the contact page so that users can get in touch with the blogger. [[#17](https://github.com/GaryS007/Portfolio-Project-4/issues/17)]
+* I can add content to the contact page so that users can get in touch with the blogger. [#17](https://github.com/GaryS007/Portfolio-Project-4/issues/17)
+<br>
 
 **As a User**
-* I can see the website's logo and links at the top of the page so that I can easily navigate to all parts of the website. [[#1](https://github.com/GaryS007/Portfolio-Project-4/issues/1)
+<br>
+
+* I can see the website's logo and links at the top of the page so that I can easily navigate to all parts of the website. [#1](https://github.com/GaryS007/Portfolio-Project-4/issues/1)
 * I can click on a blog post and read the full post.[#2](https://github.com/GaryS007/Portfolio-Project-4/issues/2)
 * I can read more information about the blogger.[#13](https://github.com/GaryS007/Portfolio-Project-4/issues/13)
 * I can use the search box to search for specific recipes.[#14](https://github.com/GaryS007/Portfolio-Project-4/issues/14)
@@ -624,7 +625,7 @@ ____
 
 ## Testing
 
-View the TESTING.md file for all testing information.
+View the [TESTING.md](TESTING.md) file for all testing information.
 
 [Back to Top](#table-of-contents)
 
@@ -795,13 +796,14 @@ ____
 ## Credits
 
 I used the following walkthroughs which really helped shape my project, I never copied and pasted any code, all code was written manually to ensure I understand every component of my application. I've always wanted to do a blog about Pizza as I own 2 Pizza ovens so the following really influenced my project:
-    - Code Institute's 'I Think Therefore I Blog' - This project was fantastic and simple. I really wanted to expand on this concept, changing elements and adding my own models. A big thanks for Code Institute for allowing us to use this as a base for my own blog.
-    - Another Code Institute MASTER CLASS via the [Django Blog Webinar](https://www.youtube.com/watch?v=YH--VobIA8c&ab_channel=MediaUpload). This really helped me solidify my knowledge with Django and generate new ideas.
-    - Code Institute Slack Community - I thought my questions were unique, being able to search through the past experiences of other students is extremely beneficial and really easy to use.
-    - Code Institute Tutors - When you really hit that coding wall after exhausting various options, you have a team of friendly helpful coders who can point you in the right direction.
-    - [Stackoverflow](https://stackoverflow.com/) - So much information, so many people problem solving and trying to help. A lot of time spent here.
-    - Youtube - I watched various tutorials from various sources, this would help with ideas, see how they approach implementing a solution so I can then implement it my own way. There are so many ways to do everything!
-        - More specifically, Corey Schafer and John Abdsho Khosrowabadi videos I found extremely helpful.
+
+* Code Institute's 'I Think Therefore I Blog' - This project was fantastic and simple. I really wanted to expand on this concept, changing elements and adding my own models. A big thanks for Code Institute for allowing us to use this as a base for my own blog.
+* Another Code Institute MASTER CLASS via the [Django Blog Webinar](https://www.youtube.com/watch?v=YH--VobIA8c&ab_channel=MediaUpload). This really helped me solidify my knowledge with Django and generate new ideas.
+* Code Institute Slack Community - I thought my questions were unique, being able to search through the past experiences of other students is extremely beneficial and really easy to use.
+* Code Institute Tutors - When you really hit that coding wall after exhausting various options, you have a team of friendly helpful coders who can point you in the right direction.
+* [Stackoverflow](https://stackoverflow.com/) - So much information, so many people problem solving and trying to help. A lot of time spent here.
+* Youtube - I watched various tutorials from various sources, this would help with ideas, see how they approach implementing a solution so I can then implement it my own way. There are so many ways to do everything!
+    - More specifically, Corey Schafer and John Abdsho Khosrowabadi videos I found extremely helpful.
     - ChatGBT helped me generate meaningful text for the website.
     
 **Media**
@@ -813,11 +815,11 @@ ____
 ## Acknowledgements
 
 A Special Thanks to everyone who helped me with this project.
-    - My Mentor Jubril Akolade who really helped guide me on exactly what I need to do, spot what I was missing. Extremely professional and easy to work with.
-    - My friends and family who helped me with testing as well as feedback throughout development.
-    - My study group for sharing about their projects throughout each project.
-    - Again I have to thank Tutor Support as they're amazing.
-    - Also Student Support for supporting me through tough times during this project.
+* My Mentor Jubril Akolade who really helped guide me on exactly what I need to do, spot what I was missing. Extremely professional and easy to work with.
+* My friends and family who helped me with testing as well as feedback throughout development.
+* My study group for sharing about their projects throughout each project.
+* Again I have to thank Tutor Support as they're amazing.
+* Also Student Support for supporting me through tough times during this project.
     
 [Back to Top](#table-of-contents)
 
