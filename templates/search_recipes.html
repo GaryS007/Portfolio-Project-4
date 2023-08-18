@@ -6,6 +6,7 @@
         <h1 class="center-content">You Searched For "{{ search }}"</h1>
         <br/>
         {% for recipe in recipes %}
+        <center>
             <div class="col-md-4 center-content">
                 <div class="card mb-4">
                     <div class="card-body">
@@ -29,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </center>
         {% empty %}
         <h1>No search results found...</h1>
 
